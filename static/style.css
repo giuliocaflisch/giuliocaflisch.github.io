@@ -1,8 +1,8 @@
 @font-face {
     font-family: "Monomath";
     
-    src: url('assets/fonts/monomath/monocode-regular.ttf');
-    src: url('assets/fonts/monomath/monocode-regular.ttf') format('truetype');
+    src: url('assets/fonts/monomath/monomath-regular.ttf');
+    src: url('assets/fonts/monomath/monomath-regular.ttf') format('truetype');
     
     font-weight: normal;
     font-style:  normal;
