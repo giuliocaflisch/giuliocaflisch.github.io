@@ -1,0 +1,164 @@
+/*
+@font-face {
+    font-family: "Monocode";
+    
+    src: url('assets/fonts/monocode/monocode-regular.ttf');
+    src: url('assets/fonts/monocode/monocode-regular.ttf') format('truetype');
+    
+    font-weight: normal;
+    font-style:  normal;
+}
+
+@font-face {
+    font-family: "Monocode";
+    
+    src: url('assets/fonts/monocode/monocode-bold.ttf');
+    src: url('assets/fonts/monocode/monocode-bold.ttf') format('truetype');
+    
+    font-weight: bold;
+    font-style:  normal;
+}
+*/
+
+body {
+    background-color: rgb(22, 22, 22);
+
+    color: rgb(212, 212, 212);
+    
+    font-family: "Monomath";
+    font-size:   16px;
+
+    margin-top:    12px;
+    margin-bottom: 12px;
+    margin-left:   0px;
+    margin-right:  0px;
+}
+
+div {
+    background-color: rgb(22, 22, 22);
+
+    color: rgb(212, 212, 212);
+    
+    font-family: "Monomath";
+    font-size:   16px;
+
+    margin-top:    12px;
+    margin-bottom: 12px;
+    margin-left:   0px;
+    margin-right:  0px;
+}
+
+hr {
+    border: 1px solid rgb(212, 212, 212);
+
+    margin-top:    12px;
+    margin-bottom: 12px;
+
+    padding-top:    0px;
+    padding-bottom: 0px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size:   2.5em;
+}
+
+h2 {
+    font-weight: bold;
+    font-size:   2em;
+}
+
+h3 {
+    font-weight: bold;
+    font-size:   1.5em;
+}
+
+h4 {
+    font-weight: bold;
+    font-size:   1.0em;
+}
+
+h5 {
+    font-weight: bold;
+    font-size:   0.75em;
+}
+
+pre {
+    display: block;
+
+    resize: none;
+    overflow: hidden;
+    max-width: 100%;
+
+    background-color:rgb(30, 30, 30);
+
+    color: rgb(212, 212, 212);
+    
+    font-family: "Monomath";
+    font-size:   16px;
+
+    margin-top:    12px;
+    margin-bottom: 12px;
+    margin-left:   0px;
+    margin-right:  0px;
+}
+
+code {
+    display: block;
+
+    resize: none;
+    overflow: hidden;
+    max-width: 100%;
+
+    background-color:rgb(22, 22, 22);
+
+    color: rgb(212, 212, 212);
+    
+    font-family: "Consolas";
+    font-size:   15px;
+
+    white-space: pre;
+
+    margin-top:    12px;
+    margin-bottom: 12px;
+    margin-left:   0px;
+    margin-right:  0px;
+}
+
+math {
+    display: block;
+
+    resize: none;
+    overflow: hidden;
+    max-width: 100%;
+
+    background-color:rgb(22, 22, 22);
+
+    color: rgb(212, 212, 212);
+    
+    font-family: "Monomath";
+    font-size:   15px;
+
+    white-space: pre;
+
+    margin-top:    12px;
+    margin-bottom: 12px;
+    margin-left:   0px;
+    margin-right:  0px;
+}
+
+sub {
+    font-size: 0.50em;
+}
+
+sup {
+    font-size: 0.50em;
+}
+
+.editable {
+    outline: none !important;
+}
+
+.editable:focus {
+    box-shadow: 0 0 10px;
+}
