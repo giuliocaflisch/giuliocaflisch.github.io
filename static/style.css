@@ -1,21 +1,11 @@
 /*
 @font-face {
-    font-family: "Monocode";
+    font-family: "Monomath";
     
-    src: url('assets/fonts/monocode/monocode-regular.ttf');
-    src: url('assets/fonts/monocode/monocode-regular.ttf') format('truetype');
+    src: url('assets/fonts/monomath/monocode-regular.ttf');
+    src: url('assets/fonts/monomath/monocode-regular.ttf') format('truetype');
     
     font-weight: normal;
-    font-style:  normal;
-}
-
-@font-face {
-    font-family: "Monocode";
-    
-    src: url('assets/fonts/monocode/monocode-bold.ttf');
-    src: url('assets/fonts/monocode/monocode-bold.ttf') format('truetype');
-    
-    font-weight: bold;
     font-style:  normal;
 }
 */
