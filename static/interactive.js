@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var newContent = content;
 
+        newContent = newContent.replace(/(?<!^)\r?\n/g, '\\\\');
         newContent = newContent.replace(/ /g, '\\,\\,');
 
         newContent = newContent.replace(/\|/g, '|\\!\\!');
 
-        newContent = newContent.replace(/=/g, '=\\!\\!')
+        newContent = newContent.replace(/=/g, '=\\!')
 
         newContent = newContent.replace(/{/g, '\\{');
         newContent = newContent.replace(/}/g, '\\}');
@@ -26,17 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
         newContent = newContent.replace(/⨆/g, '\\bigsqcup');
         newContent = newContent.replace(/⨅/g, '?');
 
-        newContent = newContent.replace(/¦/g, '\\text{¦}');
-        newContent = newContent.replace(/\|/g, '\\text{|}');
+        newContent = newContent.replace(/\+/g, '\\!+\\!');
 
-        newContent = '$\\displaystyle ' + newContent + '$';
+        newContent = newContent.replace(/¦/g, '\\text{ ¦ }');
+        newContent = newContent.replace(/\|/g, '\\text{ | }');
+
+        newContent = '$\\displaystyle \\begin{array} {lll}' + newContent + '\\end{array} $';
 
         contentElem.innerHTML = newContent;
     }
-
-
-
-
+    
     var contentElements = document.getElementsByTagName('head');
     for (var i = 0; i < contentElements.length; i++) {
         var contentElem = contentElements[i];
