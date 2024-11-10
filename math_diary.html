@@ -65,6 +65,7 @@
                                 \begin{align*}
                                     : \textcolor{blue}{\int}_{x_0}^{x_1 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t &= - \textcolor{blue}{\int}_{x_1}^{x_0 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t \\
                                     : \textcolor{blue}{\int}_{x_0}^{x_0 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t &= 0 \\
+                                    \\
                                     : \textcolor{red}{\sum}_{x_0}^{x_1 - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t &= - \textcolor{red}{\sum}_{x_1}^{x_0 - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t \\
                                     : \textcolor{red}{\sum}_{x_0}^{x_0 - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t &= 0
                                 \end{align*}
@@ -130,6 +131,7 @@
                                 \begin{align*}
                                     \textcolor{blue}{D} (f \cdot^{ -1}) &= - \frac{\textcolor{blue}{D} f}{f \cdot (f + \cancel{\textcolor{blue}{0} \cdot \textcolor{blue}{D} f})} \\
                                     & = - - \frac{\textcolor{blue}{D} f}{f \cdot^2} \\
+                                    \\
                                     \textcolor{red}{\Delta} (f \cdot^{ -1}) &= - \frac{\textcolor{red}{\Delta} f}{f \cdot (f + \cancel{\textcolor{red}{1}} \cdot \textcolor{red}{\Delta} f)} \\
                                     & = - \frac{\textcolor{red}{\Delta} f}{f \cdot (f + \textcolor{red}{\Delta} f)}
                                 \end{align*}
@@ -200,12 +202,12 @@
                                     \textcolor{blue}{\int}_{0}^{x - \textcolor{blue}{0}} \ln(t) \; \textcolor{blue}{d} t =& \; x \ln(x) - x \\
                                     \textcolor{red}{\sum}_{0}^{x - \textcolor{red}{1}} H(t) \; \textcolor{red}{\delta} t =& \; x H(x) - x \\
                                     \\
-                                    \textcolor{blue}{\int}_{0}^{x - 0} \ln(x)^2 \; \textcolor{blue}{d} x =& \; x \ln(x)^2 - 2 x \ln(x) + 2 x \\
-                                    \textcolor{red}{\sum}_{0}^{x - 1}  H(x)^2 \; \textcolor{red}{\delta} x =& \; x H(x)^2 - 2 x H(x) + 2 x \\
+                                    \textcolor{blue}{\int}_{0}^{x - \textcolor{blue}{0}} \ln(x)^2 \; \textcolor{blue}{d} x =& \; x \ln(x)^2 - 2 x \ln(x) + 2 x \\
+                                    \textcolor{red}{\sum}_{0}^{x - \textcolor{red}{1}}  H(x)^2 \; \textcolor{red}{\delta} x =& \; x H(x)^2 - 2 x H(x) + 2 x \\
                                     &\; \textcolor{grey}{- H(x)} \\
                                     \\
-                                    \textcolor{blue}{\int}_{0}^{x - 0} \ln(x)^3 \; \textcolor{blue}{d} x =& \; x \ln(x)^3 - 3 x \ln(x)^2 + 6 x \ln(x) - 6 x\\
-                                    \textcolor{red}{\sum}_{0}^{x - 1} H(x)^3 \; \textcolor{red}{\delta} x =& \; x H(x)^3 - 3 x H(x)^2 + 6 x H(x) - 6 x \\
+                                    \textcolor{blue}{\int}_{0}^{x - \textcolor{blue}{0}} \ln(x)^3 \; \textcolor{blue}{d} x =& \; x \ln(x)^3 - 3 x \ln(x)^2 + 6 x \ln(x) - 6 x\\
+                                    \textcolor{red}{\sum}_{0}^{x - \textcolor{red}{1}} H(x)^3 \; \textcolor{red}{\delta} x =& \; x H(x)^3 - 3 x H(x)^2 + 6 x H(x) - 6 x \\
                                     & \; \textcolor{grey}{-\frac{3}{2}H\left(x\right)^{2}+3H\left(x\right)-\frac{1}{2}\frac{d}{dx}H\left(x\right)+\frac{\pi^{2}}{12}} \\
                                     \\
                                     \dots
