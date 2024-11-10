@@ -84,10 +84,14 @@
 
                                 <h3>Derivata dell'integrale</h3>
                                 \begin{align*}
-                                \textcolor{blue}{D} \left( \textcolor{blue}{\int}_{x_0}^{x - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t \right)(x) &= f(x) \\
-                                    \textcolor{red}{\Delta} \left( \textcolor{red}{\sum}_{x_0}^{x - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t \right)(x) &= f(x)
+                                \textcolor{blue}{D} \left(x \mapsto \textcolor{blue}{\int}_{x_0}^{x - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t \right) &= f \\
+                                    \textcolor{red}{\Delta} \left(x \mapsto \textcolor{red}{\sum}_{x_0}^{x - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t \right) &= f
                                 \end{align*}
-                                
+                                La funzione derivata in questo teorema prende il nome di primitiva. Il calcolo di funzioni senza nome (Church) ci permette di semplificare la notazione per esprimere questo teorema.
+                                Ricordiamo che l'argomento della derivata è una funzione e non un'espressione qualsiasi. Risulta quindi importante, per una data espressione, indicare di quale variabile essa è analizzata e considerata funzione.
+                                <br>
+                                <br>
+
                                 <h3>Integrale della derivata</h3>
                                 \begin{align*}
                                     \textcolor{blue}{\int}_{x_0}^{x_1 - \textcolor{blue}{0}} \textcolor{blue}{D} f(x) \; \textcolor{blue}{d} t &= f(x_1) - f(x_0) \\
