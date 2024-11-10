@@ -23,11 +23,12 @@
                     Magari ti è capitato di notare l'immensa somiglianza tra il l'analisi infinitesimale e finitesimale.
                     La domanda che sorge spontanea è quanto sia possibile estendere la costruzione sintattica e semantica degli operatori seguenti in una maniera tale da preservare il maggior numero di analogie tra essi.
                     \begin{align*}
-                        \textcolor{blue}{D}, &\textcolor{blue}{\int d} \\
-                        \textcolor{red}{\Delta}, &\textcolor{red}{\sum \delta}
+                        \textcolor{blue}{D}, &\textcolor{blue}{\int \cdot d} \\
+                        \textcolor{red}{\Delta}, &\textcolor{red}{\sum \cdot \delta}
                     \end{align*}
                     Per una questione di semplicità grafica analizzaiamo, nel caso finitesimo, soltanto lo step unitario.
                     Il caso generale con step diverso da 0 può essere ricondotto al caso con incremento 1.
+                    In aggiunta a ciò, nel caso discreto usiamo il colore rosso soltanto per indicare le porzioni di formule che continuano ad avere senso nella generalizzazione vista nel paragrafo <b>Estensioni</b>.
                     <br>
                     <br>
                     <h3>Definizioni</h3>
@@ -46,6 +47,7 @@
                                 \end{align*}
                                 In pratica la derivata è definita come un'operatore che prende come argomento una funzione e restituisce come risultato la funzione del rapporto incrementale dell'argomento.
                                 <br>
+                                <br>
                                 Utilizziamo inoltre associatività da sinistra verso destra in quanto la derivata di una funzione in uno specifico punto applica dapprima sulla funzione restituendo una nuova funzione, quest'ultima è poi analizzata nel punto specificato.
                                 \begin{align*}
                                     \textcolor{blue}{D} f(x) &= \left(\textcolor{blue}{D} f\right)(x) \\
@@ -53,6 +55,19 @@
                                 \end{align*}
                                 Se così non fosse, e considerassimo la derivata con associatività contraria, non avremmo la "derivata di una funzione" il cui risultato è calcolato in un "particolare punto" come sperato.
                                 Avremmo invece la "derivata" di "una funzione già calcolata in un particolare punto", che sarebbe decisamente sbagliato.
+                                <br>
+                                <br>
+                                Per finire estendiamo la definizione di derivata per accettare espressioni qualsiasi (non per forza funzioni esplicitate nella variabile argomento) se si dichiara anche la variabile interna analizzata.
+                                \begin{align*}
+                                    \textcolor{blue}{D}_{x} \left(?(x, y, z, \dots) \right) &= \textcolor{blue}{D} \left(x' \mapsto ?(x', y, z, \dots) \right)(x) \\
+                                    \textcolor{red}{\Delta}_{x} \left(?(x, y, z, \dots) \right) &= \textcolor{red}{\Delta} \left(x' \mapsto ?(x', y, z, \dots) \right)(x)
+                                \end{align*}
+                                In realtà non servirebbe neanche rinominare la variabile che definisce la funzione deta l'espressione e il parametro di interesse.
+                                Ovviamente, nel caso delle funzioni, le fue notazioni coincidono.
+                                \begin{align*}
+                                    \textcolor{blue}{D}_{x} f &= \textcolor{blue}{D} f(x) \\
+                                    \textcolor{red}{\Delta}_{x} f &= \textcolor{red}{\Delta} f(x)
+                                \end{align*}
                                 <br>
                                 <br>
 
@@ -63,13 +78,25 @@
                                 Se gli estremi sono nell'ordine crescente e la distanza tra di essi è un mumero intero, allora useremo l'integrale rispetto alla misura standard finitesimale (misura di conteggio sugli interi traslati degli estremi).
                                 Questa componente traslazionale permette di lavorare con integrali, per esempio, da 1/2 a 3 + 1/2 dove è ovvio che, procedendo dalla partenza incrementando a step unitario, si giunga all'estremo finale. 
                                 <br>
+                                Anche qui, come già effettuato per le derivate, estendiamo la definizione per accettare espressioni qualsiasi come argomento di un integrale (sempre se si esplicita la variabile nella quale l'espressione è vista come funzione).
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} ?(x, y, z, \dots) \textcolor{blue}{\cdot d} x = \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x \mapsto ?(x, y, z, \dots)) \textcolor{blue}{\cdot d} \\
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} ?(x, y, z, \dots) \textcolor{red}{\cdot \delta} x = \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} (x \mapsto ?(x, y, z, \dots)) \textcolor{red}{\cdot \delta}
+                                \end{align*}
+                                Questo permette di non dover, se non necessario, esplicitare la variabile di cammino dell'integrale.
+                                Bisogna precisare che la variabile di cammino nell'integrale non ha nulla a che fare definizionalmente con la variabile nella quale si esprime il risultato (che dipende dalle variabili poste agli estremi).
+                                L'integrale è un operatore non locale in quanto necessita di due estremi per restituire un risultato.
+                                <br>
+                                Inoltre utilizzeremo la convezione della scrittura di integrali indefiniti, per i quali si omettono gli estremi di integrazione specificando o meno la variabile di integrazione.
+                                <br>
+                                <br>
                                 Useremo la convenzione di scrivere gli estremi decrementati dello step (poichè semplifica pressochè tutti i teoremi) e quella di quasi-inversione degli estremi in ordine decrescente che segue (dato che questa è l'unica che preserva sia la somma triviale uguale a 0 per estremi uguali a meno di decremento e la concatenazione di intervalli).
                                 \begin{align*}
-                                    : \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f(x) \; \textcolor{blue}{d} t &= - \textcolor{blue}{\int}_{x_1}^{x_0 \textcolor{blue}{- 0}} f(x) \; \textcolor{blue}{d} t \\
-                                    : \textcolor{blue}{\int}_{x_0}^{x_0 \textcolor{blue}{- 0}} f(x) \; \textcolor{blue}{d} t &= 0 \\
+                                    : \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} &= 0 - \textcolor{blue}{\int}_{x_1}^{x_0 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} \\
+                                    : \textcolor{blue}{\int}_{x_0}^{x_0 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} &= 0 \\
                                     \\
-                                    : \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f(t) \; \textcolor{red}{\delta} t &= - \textcolor{red}{\sum}_{x_1}^{x_0 \textcolor{red}{- 1}} f(t) \; \textcolor{red}{\delta} t \\
-                                    : \textcolor{red}{\sum}_{x_0}^{x_0 \textcolor{red}{- 1}} f(t) \; \textcolor{red}{\delta} t &= 0
+                                    : \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} &= 0 - \textcolor{red}{\sum}_{x_1}^{x_0 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} \\
+                                    : \textcolor{red}{\sum}_{x_0}^{x_0 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} &= 0
                                 \end{align*}
                             </div>
                         </div>
@@ -83,19 +110,14 @@
                             <div class="col">
                                 <h3>Derivata dell'integrale</h3>
                                 \begin{align*}
-                                \textcolor{blue}{D} \left(x \mapsto \textcolor{blue}{\int}_{x_0}^{x \textcolor{blue}{- 0}} f(x) \; \textcolor{blue}{d} t \right) &= f \\
-                                    \textcolor{red}{\Delta} \left(x \mapsto \textcolor{red}{\sum}_{x_0}^{x \textcolor{red}{- 1}} f(t) \; \textcolor{red}{\delta} t \right) &= f
+                                \textcolor{blue}{D}_{x} \left(\textcolor{blue}{\int}_{x_0}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} \right) &= f(x) \\
+                                    \textcolor{red}{\Delta}_{x} \left(\textcolor{red}{\sum}_{x_0}^{x \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} \right) &= f(x)
                                 \end{align*}
-                                La funzione derivata in questo teorema prende il nome di una primitiva.
-                                Il calcolo di funzioni senza nome (Church) ci permette di semplificare la notazione per esprimere questo teorema.
-                                Ricordiamo che l'argomento della derivata è una funzione e non un'espressione qualsiasi. Risulta quindi importante, per una data espressione, indicare di quale variabile essa è analizzata e considerata funzione.
-                                <br>
-                                <br>
 
                                 <h3>Integrale della derivata</h3>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} \textcolor{blue}{D} f(x) \; \textcolor{blue}{d} t &= f(x_1) - f(x_0) \\
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} \textcolor{red}{\Delta} f(t) \; \textcolor{red}{\delta} t &= f(x_1) - f(x_0)
+                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} \textcolor{blue}{D} f \textcolor{blue}{\cdot d} &= f(x_1) - f(x_0) \\
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} \textcolor{red}{\Delta} f \textcolor{red}{\cdot \delta} &= f(x_1) - f(x_0)
                                 \end{align*}
                             </div>
                         </div>
@@ -111,7 +133,7 @@
 
                                 <h4>Costante</h4>
                                 \begin{align*}
-                                k(\cdot) = k \Rightarrow & \; \textcolor{blue}{D} k = 0 \\
+                                    k(\cdot) = k \Rightarrow & \; \textcolor{blue}{D} k = 0 \\
                                         & \; \textcolor{red}{\Delta} k = 0
                                 \end{align*}
 
@@ -119,7 +141,6 @@
                                 \begin{align*}
                                     \textcolor{blue}{D} (f + g) &= \textcolor{blue}{D} f + \textcolor{blue}{D} g \\
                                     \textcolor{red}{\Delta} (f + g) &= \textcolor{red}{\Delta} f + \textcolor{red}{\Delta} g
-
                                 \end{align*}
 
                                 <h4>Moltiplicazione</h4>
@@ -130,11 +151,11 @@
 
                                 <h4>Inverso moltiplicativo</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} (f^{\cdot -1}) &= - \frac{\textcolor{blue}{D} f}{f \cdot (f + \textcolor{blue}{0} \cdot \textcolor{blue}{D} f)} \\
-                                    \textcolor{red}{\Delta} (f^{\cdot -1}) &= - \frac{\textcolor{red}{\Delta} f}{f \cdot (f + \textcolor{red}{1} \cdot \textcolor{red}{\Delta} f)} \\
+                                    \textcolor{blue}{D} (f \cdot^{-1}) &= - \frac{\textcolor{blue}{D} f}{f \cdot (f + \textcolor{blue}{0} \cdot \textcolor{blue}{D} f)} \\
+                                    \textcolor{red}{\Delta} (f \cdot^{-1}) &= - \frac{\textcolor{red}{\Delta} f}{f \cdot (f + \textcolor{red}{1} \cdot \textcolor{red}{\Delta} f)} \\
                                 \end{align*}
                                 <br>
-                                Da cui seguono direttamente le regole della sottrazione, del prodotto per una costante e del rapporto.
+                                Da cui seguono direttamente le regole dell'inverso additivo, della sottrazione, del prodotto per una costante e del rapporto.
                                 <br>
                                 <br>
 
@@ -145,29 +166,117 @@
                                 
                                 <h4>Inverso Compositivo (Leibniz)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} (f^{\circ -1}) = \frac{1}{\textcolor{blue}{D} f(f^{\circ -1})} \\
+                                    \textcolor{blue}{D} (f \circ^{-1}) = \frac{1}{\textcolor{blue}{D} f(f \circ^{-1})} \\
                                 \end{align*}
                                 <br>
                                 Interessante notare che non possono esistere analoghe regole per la composizione nel caso della derivata finitesimale.
                                 L'impossibilità è dovuta al fatto che, per variazione non infinitesima della variablie di derivazione, la funzione interna alla composizione varia in maniera arbitrariamente grande quindi non si può estrarre alcuna informazione locale a catena.
                                 <br>
                                 <br>
+
                                 <h4>Potenze decrementative (Pochhammer)</h4>
-                                ...
+                                Dobbiamo prima definire le potenze decrementative nel caso di esponente intero.
+                                Per fare ciò generalizziamo la produttoria con estremi invertiti, per adesso solo nel caso di estremi a distanza intera, nella maniera analoga a quanto fatto per la sommatoria.
+                                \begin{align*}
+                                    \textcolor{white}{\prod}_{x_0}^{x_1 - 1} f \textcolor{white}{\cdot}^{\textcolor{white}{\delta}} = 1 / \left( \textcolor{white}{\prod}_{x_1}^{x_0 - 1} f \textcolor{white}{\cdot}^{\textcolor{white}{\delta}} \right)\\
+                                \end{align*}
+                                Lo ripeto anche qui per essre chiaro.
+                                Capisco che questa estensione della produttoria può sembrare strana in un primo momento ma è l'unica che preserva la concatenzaione di intervalli (e.g. prodotto da 1 a 5 per prodotto da 5 a 1 che procede e risulta all'inverso) e la produttoria vuota per estremi uguali a meno di decremento.
+                                <br>
+                                <br>
+                                Ecco qui la super concisa definizione data dal lavoro precedente.
+                                \begin{align*}
+                                    (x) \cdot^n_{\textcolor{blue}{-0}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{blue}{0}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k} \\
+                                    (x) \cdot^n_{\textcolor{red}{-1}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{red}{1}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k} \\
+                                \end{align*}
+                                Possiamo notare che, per esponente negatico, moltiplichiamo al denominatore potenze incrementative partendo dall'incremento di uno step (e non di 0 come per esponente positivo).
+                                <br>
+                                <br>
+                                Sembra incredibile ma questa, per definizione con esponenti interi, vale la classica regola di derivazione delle potenze scritta sotto. 
+                                \begin{align*}
+                                    \textcolor{blue}{D}_{x} \left((x) \cdot^n_{\textcolor{blue}{-0}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{blue}{-0}} \\
+                                    \textcolor{red}{\Delta}_{x} \left((x) \cdot^n_{\textcolor{red}{-1}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{red}{-1}}
+                                \end{align*}
+                                Ancor più entusiasmante è il fatto che esiste un'estensione per esponente complesso generico usando la continuazione analitica del fattoriale (che io indico con la lettera greca Digamma).
+                                \begin{align*}
+                                    (x) \cdot^n_{\textcolor{blue}{- 0}} &:= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} \textcolor{blue}{h} \cdot^{n} \cdot \frac{\digamma\left(\frac{x}{\textcolor{blue}{h}}\right)}{\digamma\left(\frac{x}{\textcolor{blue}{h}} - n \right)} \\
+                                    (x) \cdot^n_{\textcolor{red}{- 1}} &:= \textcolor{red}{1} \cdot^{n} \cdot \frac{\digamma\left(\frac{x}{\textcolor{red}{1}}\right)}{\digamma\left(\frac{x}{\textcolor{red}{1}} - n \right)}
+                                \end{align*}
+                                Questa definizione non ha senso per esponente intero negativo nel caso a step decrementativo finitesimo uguale a 1.
+                                Ma, sorprendentemente, la definizione precedente in questo caso ha perfettamente senso ed è proprio quella che si ottiene al limite come continuazione.
+                                <br>
+                                Ultima cosa, ma non per importanza, la regola della potenza continua a valere anche per esponenti non interi.
+                                Questo fatto è estremamente eccitante!
+                                <br>
+                                <br>
+
                                 <h4>Esponenziali elementari (Napier)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} \left( x \mapsto \left( \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h})^{\cdot \frac{1}{\textcolor{blue}{h}}}\right)^{\cdot x} \right) &= \left( x \mapsto \left( \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h})^{\cdot \frac{1}{\textcolor{blue}{h}}}\right)^{\cdot x} \right) \\
-                                    \textcolor{red}{\Delta} \left( x \mapsto \left( (1 + \textcolor{red}{1})^{\cdot \frac{1}{\textcolor{red}{1}}}\right)^{\cdot x} \right) &= \left( x \mapsto \left( (1 + \textcolor{red}{1})^{\cdot \frac{1}{\textcolor{red}{1}}}\right)^{\cdot x} \right) \\
+                                    \textcolor{blue}{D}_{x} \left(\lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \right) &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
+                                    \textcolor{red}{\Delta}_{x} \left( (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}} \right) &= (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}}
                                 \end{align*}
+                                Notate qualcuno di familiare?
+                                Ecco tra noi il numero di Napier!
+                                In un certo senso, espresso da questa formula, il numero di Napier e due sono analoghi nel calcolo infinitesimo e finitesimo rispettivamente.
                                 <br>
                                 <br>
                                 
                                 <h3>Integrali</h3>
                                 Per alleggerire la notazione usiamo la convenzione per gli integrali indefiniti (lasciando però scritto il devrementare dell'estremo superiore per compatibilità e maggiore semplicità delle formule)
+                                <br>
+                                <br>
+                                <h4>Costante</h4>
+                                \begin{align*}
+                                    k(\cdot) = k \Rightarrow \; \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} k \textcolor{blue}{\cdot d} x &= k \cdot x \\
+                                        \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} k \textcolor{red}{\cdot \delta} x &= k \cdot x
+                                \end{align*}
+
+                                <h4>Addizione</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f + g \textcolor{blue}{\cdot d} &= \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} g \textcolor{blue}{\cdot d} \\
+                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} f + g \textcolor{red}{\cdot \delta} &= \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} + \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} g \textcolor{red}{\cdot \delta}
+                                \end{align*}
+                                <br>
+
                                 <h4>Per parti (dalla derivata della moltiplicazione)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f(x) \cdot \textcolor{blue}{D} g(x) \; \textcolor{blue}{d} x &= f(x) \cdot g(x) - \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \textcolor{blue}{D} f(x) \cdot g(x) \; \textcolor{blue}{d} x - \textcolor{blue}{0} \cdot \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \textcolor{blue}{D} f(x) \cdot \textcolor{blue}{D} g(x) \; \textcolor{blue}{d} x \\
-                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} f(x) \cdot \textcolor{red}{\Delta} g(x) \; \textcolor{red}{\delta} x &= f(x) \cdot g(x) - \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \textcolor{red}{\Delta} f(x) \cdot g(x) \; \textcolor{red}{\delta} x - \textcolor{red}{1} \cdot \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \textcolor{red}{\Delta} f(x) \cdot \textcolor{red}{\Delta} g(x) \; \textcolor{red}{\delta} x
+                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} &= f \cdot g - \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot g \textcolor{blue}{\cdot d} - \textcolor{blue}{0} \cdot \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot \textcolor{blued}{D} g \textcolor{blue}{\cdot d} \\
+                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta} &= f \cdot g - \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot g \textcolor{red}{\cdot \delta} - \textcolor{red}{1} \cdot \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta}
+                                \end{align*}
+                                Da cui seguono direttamente le regole dell'inverso additivo, della sottrazione, e del prodotto per una costante.
+                                <br>
+                                <br>
+
+                                <h4>Sostituzione (dalla derivata della composizione)</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \circ g \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} = \left( \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} \right) \circ g
+                                \end{align*}
+                                Come visto in precedenza per la derivata della composizione, non può esistere una regola analoga per l'integrale finitesimo.
+                                <br>
+                                <br>
+
+                                <h4>Potenze decrementative</h4>
+                                Dobbiamo fare attenzione a dividere i casi in cui l'esponente è diverso o uguale a -1.
+                                <br>
+                                <b>Esponente diverso da -1</b>
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} (x) \cdot^n _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} x &= \frac{(x) \cdot^{n + 1}_{\textcolor{blue}{-0}}}{n + 1} \\
+                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} (x) \cdot^n _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} x &= \frac{(x) \cdot^{n + 1}_{\textcolor{red}{-1}}}{n + 1}
+                                \end{align*}
+                                <b>Esponente uguale a -1</b>
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} (x) \cdot^{-1} _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} x &= \ln(x) \\
+                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} (x) \cdot^{-1} _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} x &= H(x)
+                                \end{align*}
+                                Da notare come la potenza decrementativa per esponente -1, abbia un incremento nel denominatore di 1 che è esattamente quello che serve per definire la serie armonica partendo da zero fino all'estremo decrementato!
+                                Coincidenze? Io non credo.
+                                <br>
+                                <br>
+
+                                <h4>Esponenziali elementari</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \left( \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \right) \textcolor{blue}{\cdot d} x &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
+                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \left( (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}} \right) \textcolor{red}{\cdot \delta} x &= (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}}
                                 \end{align*}
                             </div>
                         </div>
@@ -185,16 +294,17 @@
                                 <h3>Integrali</h3>
                                 <h4>Teorema di compatibilità (Euler e Maclaurin)</h4>
                                 \begin{align*}
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f(x) \; \textcolor{red}{\delta} x =& \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f(x) \; \textcolor{blue}{d} x + \textcolor{white}{\sum}_{0}^{\infty - 1} \frac{B(k + 1)}{(k + 1)!} \cdot (\textcolor{blue}{D} ^{\circ k} f(x_1) - \textcolor{blue}{D}^{\circ k} f(x_1)) \; \textcolor{white}{\delta} k
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} =& \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{white}{\sum}_{0}^{\infty - 1} \frac{B(k + 1)}{\digamma(x + 1)} \cdot \textcolor{red}{1} \cdot^{k+1} \cdot (\textcolor{blue}{D} ^{\circ k} f(x_1) - \textcolor{blue}{D}^{\circ k} f(x_0)) \textcolor{white}{\cdot \delta} k
                                 \end{align*}
-                                L'ugualianza vale nel caso in cui la serie converge.
+                                L'ugualianza vale nel caso in cui la serie converge e, ovviamente, ha senso solo se la funzione sia derivabile infinitesimalmente un numero arbitrario di volte.
                                 Guardando alla formula osserviamo che, sul lato sinistro, l'ipotesi che gli estremi siano distanti tra loro un numero intero non è utilizza.
                                 Questo ci invita a pensare che, magari, questa proposizione (che è un teorema nel caso di estremi a distanza intera), possa essere considerato una definizione per estremi a distanza arbitraria (nel caso in cui la serie converga).
                                 Immaginate per un attimo il potere di questa cosa.
                                 Se fosse compatibile con con i teoremi scritti prima avermmo un integrale finitesimo con i superpoteri.
                                 In effetti è proprio così (per funzioni abbastanza regolari dove questa definizione ha senso).
                                 Questo è probabilmente il mio teorema preferito in tutta quanta la matematica.
-                                In pratica esso permette di estendere la somma sintatticamente nella maniera identica a come sintatticamente uno desidererebbe che sia.
+                                In pratica esso permette di estendere la somma semanticamente nella maniera identica a come sintatticamente uno desidererebbe che sia.
+                                I teoremi precedentemente descritti continuano a valere assunta la regolarità (devo studiare bene dove, come e quando fallisce).
                             </div>
                         </div>
                     </div>
@@ -203,23 +313,43 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <h3>Derivate</h3>
-                                ...
+                                <h3>Integrali</h3>
+                                <h4>Polinomi in forma non decrementativa</h4>
+                                \begin{align*}
+                                    \textcolor{red}{\sum}_{0}^{\textcolor{red}{- 1}} x \cdot^2 \textcolor{red}{\cdot \delta} x &= \textcolor{red}{\sum}_{0}^{\textcolor{red}{- 1}} (x) \cdot^2 _{\textcolor{blue}{-0}} \textcolor{red}{\cdot \delta} x \\
+                                        &= \textcolor{red}{\sum}_{0}^{\textcolor{red}{- 1}} \left( (x) \cdot^2 _{\textcolor{red}{-1}} \, - \; (x) \cdot^1 _{\textcolor{red}{-1}} \right) \textcolor{red}{\cdot \delta} x \\
+                                        &= \frac{(x) \cdot^3 _{\textcolor{red}{-1}}}{3} - \frac{(x) \cdot^2 _{\textcolor{red}{-1}}}{2} \\
+                                        &= \frac{(x) \cdot^3 _{\textcolor{blue}{-0}}}{3} - \frac{(x) \cdot^2 _{\textcolor{blue}{-0}}}{2} + \frac{(x) \cdot^1 _{\textcolor{blue}{-0}}}{6} \\
+                                        &= \frac{x \cdot^3}{3} - \frac{x \cdot^2}{2} + \frac{x}{6}
+                                \end{align*}
+                                Questo esercizio mi ha insegnato due cose importanti.
+                                La prima è che spesso in matematica è importante avere tante diverse basi di uno spazio (nel nostro caso lo spazio dei polinomi avente come basi distinte le potenze decrementative con step 0 e 1) e ricordarsi in quale caso una base conviene rispetto ad un'altra.
+                                Ongi nuova base è un nuovo modo di vedere e interagire con l'oggetto matematico in questione.
+                                La seconda è che un algoritmo vale 100 teoremi.
+                                Cosa centra questo con l'esercizio di sopra vi starete chiedendo.
+                                Mi ricordo che, durante la mia prima lezione di università, abbiamo dimostrato proprio questa formula ma in una maniera che necessita la conoscenza precedente di tale fatto (dimostrazione per ricorsione).
+                                Tutti in classe ci stavamo chiedendo da dove spuntasse fuori questa formula, in effetti una volta che si conosce questo candidato non è difficile dimostrare che sia quello giusto.
+                                La domanda è come trovare tale candidato.
+                                La risposta che abbiamo ricevuto dal professore era che lo si può trovare sapendo che deve crescere come un polinomio di grado 3 (sì, ma ancora manca tanto prima di giungere a questo specifico polinomio).
+                                Con questa risposta mi sono accorto che è possibile creare un algoritmo per riscrivere polinomi standard in polinomi decrementativi a step unitario equivalenti, per i quali è decisamente più facile risolvere l'integrale discreto.
+                                In questo senso un algoritmo vale non solo 100 teoremi, ma infiniti contabili teoremi tirati dal cilindro (uno per ogni esponende della potenza non decrementativa).
+                                Da qui la mia passione per le scienze formali computazionali che, sotto alcuni aspetti, supera la madre di tutte le scienze formali che è la matematica.
                                 <br>
                                 <br>
 
-                                <h3>Integrali</h3>
                                 <h4>Potenze del logaritmo e della serie armonica</h4>
+                                Per i curiosi ho calcolato (e invito a fare per conto vostro), l'integrale discreto delle prime potenze della serie arminica e l'ho messo a confronto con l'integrale continuo del logaritmo.
+                                Come potete vedere l'estremo superiore decrementato fornisce grandi analogie ma, a causa del termine in più presente nell0integrazione per parti discreta, l'analogia si sgretola progressivamente.
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln(t) \; \textcolor{blue}{d} t =& \; x \ln(x) - x \\
-                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H(t) \; \textcolor{red}{\delta} t =& \; x H(x) - x \\
+                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \textcolor{blue}{\cdot d} =& \; x \ln(x) - x \\
+                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H \textcolor{red}{\cdot \delta} =& \; x H(x) - x \\
                                     \\
-                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln(x)^2 \; \textcolor{blue}{d} x =& \; x \ln(x)^2 - 2 x \ln(x) + 2 x \\
-                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}}  H(x)^2 \; \textcolor{red}{\delta} x =& \; x H(x)^2 - 2 x H(x) + 2 x \\
+                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \cdot^2 \textcolor{blue}{\cdot d} =& \; x \ln(x)^2 - 2 x \ln(x) + 2 x \\
+                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}}  H \cdot^2 \textcolor{red}{\cdot \delta} =& \; x H(x)^2 - 2 x H(x) + 2 x \\
                                     &\; \textcolor{grey}{- H(x)} \\
                                     \\
-                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln(x)^3 \; \textcolor{blue}{d} x =& \; x \ln(x)^3 - 3 x \ln(x)^2 + 6 x \ln(x) - 6 x\\
-                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H(x)^3 \; \textcolor{red}{\delta} x =& \; x H(x)^3 - 3 x H(x)^2 + 6 x H(x) - 6 x \\
+                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \cdot^3 \textcolor{blue}{\cdot d} =& \; x \ln(x)^3 - 3 x \ln(x)^2 + 6 x \ln(x) - 6 x\\
+                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H \cdot^3 \textcolor{red}{\cdot \delta} =& \; x H(x)^3 - 3 x H(x)^2 + 6 x H(x) - 6 x \\
                                     & \; \textcolor{grey}{-\frac{3}{2}H\left(x\right)^{2}+3H\left(x\right)-\frac{1}{2}\frac{d}{dx}H\left(x\right)+\frac{\pi^{2}}{12}} \\
                                     \\
                                     \dots
