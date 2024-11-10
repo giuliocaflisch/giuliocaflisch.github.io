@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="static/structures/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="static/style.css" rel="stylesheet">
+
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body>
+        <title>Diario Matematico</title>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h1><center><u>Diario Matematico</u></center></h1>
+                    <hr>
+
+                    <h2>• Analisi scalare, infininitesimale e finitesimale</h2>
+                    Magari ti è capitato di notare l'immensa somiglianza tra il l'analisi infinitesimale e finitesimale.
+                    La domanda che sorge spontanea è quanto sia possibile estendere la costruzione sintattica e semantica degli operatori seguenti in una maniera tale da preservare il maggior numero di analogie tra essi.
+                    \begin{align*}
+                        \textcolor{blue}{D}, &\textcolor{blue}{\int d} \\
+                        \textcolor{red}{\Delta}, &\textcolor{red}{\sum \delta}
+                    \end{align*}
+                    Per una questione di semplicità grafica analizzaiamo, nel caso finitesimo, soltanto lo step unitario.
+                    Il caso generale con step diverso da 0 può essere ricondotto al caso con incremento 1.
+                    <br>
+                    <br>
+                    <h3>Definizioni</h3>
+                    <div class="container">
+                        <div class="row mt">
+                            <div class="col">
+                                <h3>Derivate</h3>
+                                Per quanto riguarda le derivate è spontaneo definirla in termini del rapporto incrementale.
+                                Nel caso infinitesimo si considera quindi il limite di tale rapporto.
+                                In un linguaggio puramente formale, come quello fornitoci dal paradigma di programmazione funzionale, tralasciando le convenzioni di precedenza collettivamente definite, la definizione sarebbe la seguente.
+                                \begin{align*}
+                                    \textcolor{blue}{D} &:= \\
+                                    & f \mapsto \left(x \mapsto \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \frac{f(x+\textcolor{blue}{h}) - f(x)}{\textcolor{blue}{h}} \right) \\
+                                    \textcolor{red}{\Delta} &:= \\
+                                        & f \mapsto \left(x \mapsto \frac{f(x+\textcolor{red}{1}) - f(x)}{\textcolor{red}{1}}\right)
+                                \end{align*}
+                                In pratica la derivata è definita come un'operatore che prende come argomento una funzione e restituisce come risultato la funzione del rapporto incrementale dell'argomento.
+                                <br>
+                                Utilizziamo inoltre associatività da sinistra verso destra in quanto la derivata di una funzione in uno specifico punto applica dapprima sulla funzione restituendo una nuova funzione, quest'ultima è poi analizzata nel punto specificato.
+                                \begin{align*}
+                                    \textcolor{blue}{D} f(x) &= \left(\textcolor{blue}{D} f\right)(x) \\
+                                    \textcolor{red}{\Delta} f(x) &= \left(\textcolor{red}{\Delta} f\right)(x)
+                                \end{align*}
+                                Se così non fosse, e considerassimo la derivata con associatività contraria, non avremmo la "derivata di una funzione" il cui risultato è calcolato in un "particolare punto" come sperato.
+                                Avremmo invece la "derivata" di "una funzione già calcolata in un particolare punto", che sarebbe decisamente sbagliato.
+                                <br>
+                                <br>
+
+                                <h3>Integrali</h3>
+                                Definiamo l'integrale infinitesimo come l'integrale rispetto alla misura infinitesima standard (Lebesgue).
+                                <br>
+                                Per quanto riguarda l'integrale finitesimo, inveve, è meglio definirlo a piccoli passi in sequito.
+                                <br>
+                                Useremo la convenzione di scrivere gli estremi decrementati dello step (poichè semplifica pressochè tutti i teoremi) e quella di quasi-inversione degli estremi che segue (dato che questa è l'unica che preserva sia la somma triviale uguale a 0 per estremi uguali a meno di decremento e la concatenazione di intervalli).
+                                \begin{align*}
+                                    : \textcolor{blue}{\int}_{x_0}^{x_1 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t &= - \textcolor{blue}{\int}_{x_1}^{x_0 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t \\
+                                    : \textcolor{blue}{\int}_{x_0}^{x_0 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t &= 0 \\
+                                    : \textcolor{red}{\sum}_{x_0}^{x_1 - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t &= - \textcolor{red}{\sum}_{x_1}^{x_0 - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t \\
+                                    : \textcolor{red}{\sum}_{x_0}^{x_0 - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t &= 0
+                                \end{align*}
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Teorema fondamentale</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                Non c'è molto da dire in più di quanto non si possa trovare in ogni altro libro di analisi.
+                                Bisogna ricordarsi che, in particolare nel caso infinitesimo, la funzione integrata e derivata (o viceversa) deve soddisfare alcune ipotesi di regolarità affinchè l'identità scritta valga (e.g. continua o derivabile con derivata continua rispettivamente).
+                                <br>
+                                <br>
+
+                                <h3>Derivata dell'integrale</h3>
+                                \begin{align*}
+                                \textcolor{blue}{D} \left( \textcolor{blue}{\int}_{x_0}^{x - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} t \right)(x) &= f(x) \\
+                                    \textcolor{red}{\Delta} \left( \textcolor{red}{\sum}_{x_0}^{x - \textcolor{red}{1}} f(t) \; \textcolor{red}{\delta} t \right)(x) &= f(x)
+                                \end{align*}
+                                
+                                <h3>Integrale della derivata</h3>
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{x_0}^{x_1 - \textcolor{blue}{0}} \textcolor{blue}{D} f(x) \; \textcolor{blue}{d} t &= f(x_1) - f(x_0) \\
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 - \textcolor{red}{1}} \textcolor{red}{\Delta} f(t) \; \textcolor{red}{\delta} t &= f(x_1) - f(x_0)
+                                \end{align*}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Calcolo</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Derivate</h3>
+
+                                <h4>Costante</h4>
+                                \begin{align*}
+                                k(x) = k \Rightarrow & \; \textcolor{blue}{D} k = 0 \\
+                                        & \; \textcolor{red}{\Delta} k = 0
+                                \end{align*}
+
+                                <h4>Addizione</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{D} (f + g) &= \textcolor{blue}{D} f + \textcolor{blue}{D} g \\
+                                    \textcolor{red}{\Delta} (f + g) &= \textcolor{red}{\Delta} f + \textcolor{red}{\Delta} g
+
+                                \end{align*}
+
+                                <h4>Moltiplicazione</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{D} \left(f \cdot g\right) &= \textcolor{blue}{D} f \cdot g + f \cdot \textcolor{blue}{D} g + \cancel{\textcolor{blue}{0} \cdot \textcolor{blue}{D} f \cdot \textcolor{blue}{D} g} \\
+                                    &= \textcolor{blue}{D} f \cdot g + f \cdot \textcolor{blue}{D} g \\
+                                    \\
+                                    \textcolor{red}{\Delta} \left(f \cdot g\right) &= \textcolor{red}{\Delta} f \cdot g + f \cdot \textcolor{red}{\Delta} g + \cancel{\textcolor{red}{1}} \cdot \textcolor{red}{\Delta} f \cdot \textcolor{red}{\Delta} g \\
+                                    &= \textcolor{red}{\Delta} f \cdot g + f \cdot \textcolor{red}{\Delta} g +  \textcolor{red}{\Delta} f \cdot \textcolor{red}{\Delta} g \\
+                                \end{align*}
+
+                                <h4>Inverso moltiplicativo</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{D} (f \cdot^{ -1}) &= - \frac{\textcolor{blue}{D} f}{f \cdot (f + \cancel{\textcolor{blue}{0} \cdot \textcolor{blue}{D} f})} \\
+                                    & = - - \frac{\textcolor{blue}{D} f}{f \cdot^2} \\
+                                    \textcolor{red}{\Delta} (f \cdot^{ -1}) &= - \frac{\textcolor{red}{\Delta} f}{f \cdot (f + \cancel{\textcolor{red}{1}} \cdot \textcolor{red}{\Delta} f)} \\
+                                    & = - \frac{\textcolor{red}{\Delta} f}{f \cdot (f + \textcolor{red}{\Delta} f)}
+                                \end{align*}
+                                <br>
+                                Da cui seguono direttamente le regole della sottrazione, del prodotto per una costante e del rapporto.
+                                <br>
+                                <br>
+
+                                <h4>Composizione (Leibniz)</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{D} (f \circ g) = \textcolor{blue}{D} f(g) \cdot \textcolor{blue}{D} g \\
+                                \end{align*}
+                                
+                                <h4>Inverso Compositivo (Leibniz)</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{D} (f \circ^{-1}) = \frac{1}{\textcolor{blue}{D} f(f \circ^{-1})} \\
+                                \end{align*}
+                                <br>
+                                Interessante notare che non possono esistere analoghe regole per la composizione nel caso della derivata finitesimale.
+                                L'impossibilità è dovuta al fatto che, per variazione non infinitesima della variablie di derivazione, la funzione interna alla composizione varia in maniera arbitrariamente grande quindi non si può estrarre alcuna informazione locale a catena.
+                                <br>
+                                <br>
+                                <h4>Potenze decrementative (Pochhammer)</h4>
+                                ...
+                                <h4>Esponenziali elementari (Napier)</h4>
+                                ...
+                                <br>
+                                <br>
+                                
+                                <br>
+                                
+                                <h3>Integrali</h3>
+                                ...
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Estensione</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Derivate</h3>
+                                ...
+                                <br>
+                                <br>
+
+                                <h3>Integrali</h3>
+                                <h4>Teorema di compatibilità (Euler e Maclaurin)</h4>
+                                \begin{align*}
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 - \textcolor{red}{1}} f(x) \; \textcolor{red}{\delta} x =& \textcolor{blue}{\int}_{x_0}^{x_1 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} x - \frac{f(x_1) - f(x_0)}{2} + \dots
+                                \end{align*}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Esercizi, potere e limitazione delle analogie</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Derivate</h3>
+                                ...
+                                <br>
+                                <br>
+
+                                <h3>Integrali</h3>
+                                <h4>Potenze del logaritmo e della serie armonica</h4>
+                                \begin{align*}
+                                    \textcolor{blue}{\int}_{0}^{x - \textcolor{blue}{0}} \ln(t) \; \textcolor{blue}{d} t =& \; x \ln(x) - x \\
+                                    \textcolor{red}{\sum}_{0}^{x - \textcolor{red}{1}} H(t) \; \textcolor{red}{\delta} t =& \; x H(x) - x \\
+                                    \\
+                                    \textcolor{blue}{\int}_{0}^{x - 0} \ln(x)^2 \; \textcolor{blue}{d} x =& \; x \ln(x)^2 - 2 x \ln(x) + 2 x \\
+                                    \textcolor{red}{\sum}_{0}^{x - 1}  H(x)^2 \; \textcolor{red}{\delta} x =& \; x H(x)^2 - 2 x H(x) + 2 x \\
+                                    &\; \textcolor{grey}{- H(x)} \\
+                                    \\
+                                    \textcolor{blue}{\int}_{0}^{x - 0} \ln(x)^3 \; \textcolor{blue}{d} x =& \; x \ln(x)^3 - 3 x \ln(x)^2 + 6 x \ln(x) - 6 x\\
+                                    \textcolor{red}{\sum}_{0}^{x - 1} H(x)^3 \; \textcolor{red}{\delta} x =& \; x H(x)^3 - 3 x H(x)^2 + 6 x H(x) - 6 x \\
+                                    & \; \textcolor{grey}{-\frac{3}{2}H\left(x\right)^{2}+3H\left(x\right)-\frac{1}{2}\frac{d}{dx}H\left(x\right)+\frac{\pi^{2}}{12}} \\
+                                    \\
+                                    \dots
+                                \end{align*}
+                                ...
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h2>• Analisi vettoriale, finitesimale e infinitesimale</h2>
+                    ...
+
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="static/structures/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="static/interactive.js"></script>
+    </body> 
+</html>

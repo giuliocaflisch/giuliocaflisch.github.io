@@ -7,10 +7,7 @@
         <link href="static/structures/bootstrap/bootstrap.min.css" rel="stylesheet">
         <link href="static/style.css" rel="stylesheet">
 
-        <script src="static/assets/formulas/mathjax/tex-svg.js" id="MathJax-script" async></script>
-        <script>
-            MathJax = { tex: { inlineMath: [["$", "$"]] }, svg: { fontCache: "global" } };
-        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 
     <body>
@@ -19,6 +16,79 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
+$$\underline{\textbf{Calcolo finitesimale}}$$
+\begin{align*}
+    \textcolor{red}{\Delta}, \textcolor{red}{\sum \delta}
+\end{align*}
+<br>
+
+$$\text{Trattiamo solo il caso a step unitario}$$
+
+$$\underline{\textbf{Calcolo infinitesimale}}$$
+\begin{align*}
+    \textcolor{blue}{D}, \textcolor{blue}{\int d}
+\end{align*}
+
+<hr>
+
+$$\textbf{Definizioni}$$
+\begin{align*}
+    \textcolor{red}{\Delta} f(x) := \frac{f(x+\textcolor{red}{1}) - f(x)}{\textcolor{red}{1}}
+\end{align*}
+
+
+$$\textbf{Definizioni}$$
+\begin{align*}
+    \textcolor{blue}{D} f(x) := \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \frac{f(x+\textcolor{blue}{h}) - f(x)}{\textcolor{blue}{h}}
+\end{align*}
+
+<hr>
+
+$$\textbf{Teorema fondamentale}$$
+\begin{align*}
+    \textcolor{red}{\sum}_{x_0}^{x_1 - \textcolor{red}{1}} \textcolor{red}{\Delta} f(t) \; \textcolor{red}{\delta} t = f(x_1) - f(x_0)
+\end{align*}
+
+
+$$\textbf{Teorema Fondamentale}$$
+\begin{align*}
+    _{x_0 \leq}\!\mathbb{R}_{\leq x_1} &\xrightarrow{f; \; C^1} \mathbb{C} \\
+    &\Rightarrow \\
+    \textcolor{blue}{\int}_{0}^{x - \textcolor{blue}{0}} \textcolor{blue}{D} f(x) \; \textcolor{blue}{d} t &= f(x_1) - f(x_0) \\
+\end{align*}
+
+<hr>
+
+$$\textbf{Integrale}$$
+
+
+
+$$\textbf{Integrale}$$
+
+<hr>
+
+$$\underline{\textbf{La formula di Eulero-Maclaurin}}$$
+\begin{align*}
+    \textcolor{red}{\sum}_{x_0}^{x_1 - \textcolor{red}{1}} f(x) \; \textcolor{red}{\delta} x =& \textcolor{blue}{\int}_{x_0}^{x_1 - \textcolor{blue}{0}} f(x) \; \textcolor{blue}{d} x - \frac{f(x_1) - f(x_0)}{2} + 
+\end{align*}
+                
+
+\begin{align*}
+    \textcolor{blue}{\int}_{0}^{x - \textcolor{blue}{0}} \ln(t) \; \textcolor{blue}{d} t =& \; x \ln(x) - x \\
+    \textcolor{red}{\sum}_{0}^{x - \textcolor{red}{1}} H(t) \; \textcolor{red}{\delta} t =& \; x H(x) - x
+\end{align*}
+
+\begin{align*}
+    \int_{0}^{x - 0} \ln(x)^2 \; d x =& \; x \ln(x)^2 - 2 x \ln(x) + 2 x \\
+    \sum_{0}^{x - 1}  H(x)^2 \; \delta x =& \; x H(x)^2 - 2 x H(x) + 2 x \\
+    &\; \textcolor{red}{- H(x)}
+\end{align*}
+
+\begin{align*}
+    \int_{0}^{x - 0} \ln(x)^3 \; d x =& \; x \ln(x)^3 - 3 x \ln(x)^2 + 6 x \ln(x) - 6 x\\
+    \sum_{0}^{x - 1} H(x)^3 \; \delta x =& \; x H(x)^3 - 3 x H(x)^2 + 6 x H(x) - 6 x \\
+    & \; \textcolor{red}{-\frac{3}{2}H\left(x\right)^{2}+3H\left(x\right)-\frac{1}{2}\frac{d}{dx}H\left(x\right)+\frac{\pi^{2}}{12}}
+\end{align*}
                 </div>
             </div>
         </div>
