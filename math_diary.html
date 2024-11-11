@@ -71,16 +71,17 @@
                                 <br>
                                 <br>
 
-                                <h3>Integrali</h3>
-                                Definiamo l'integrale infinitesimo come l'integrale rispetto alla misura infinitesima standard (Lebesgue).
+                                <h3>Integrali (Riemann)</h3>
+                                Definiamo gli integrali nella maniera classica.
+                                Ricordiamo che, per l'integrale infinitesimo, esiste una generalizzazione dovuta al matematico Lebesgue che permette di integrare che, secondo la definizione corrente, che altrimenti sono prive di senso tramite la teoria della misura.
                                 <br>
                                 Per quanto riguarda l'integrale finitesimo, invece, è meglio definirlo a piccoli passi.
                                 Prima estendiamo la sommatoria standard con estremi interi, per traslazione, alla sommatoria con estremi a distanza intera (o meglio un multiplo intero dello step di analisi).
+                                Il caso infinitesimo non è affetto da considerazioni di distanza tra gli estremi in quanto, intuitivamente, ogni due numeri reali risiedono a distanza che è multiplo (infinito) dello step (infinitesimo).
                                 \begin{align*}
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f(x) \textcolor{red}{\cdot \delta} x := \textcolor{red}{1} \cdot \textcolor{white}{\sum}_{0}^{x_1 - x_0 \textcolor{white}{- 1}} f(x_0 + \textcolor{red}{1} \cdot n) \textcolor{white}{\cdot \delta} n
+                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f(x) \textcolor{blue}{\cdot d} x &:= \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \textcolor{white}{\sum}_{0}^{x_1 - x_0 \textcolor{white}{- 1}} f(x_0 + \textcolor{blue}{h} \cdot n) \cdot \textcolor{blue}{h} \textcolor{white}{\cdot \delta} n \\
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f(x) \textcolor{red}{\cdot \delta} x &:= \textcolor{white}{\sum}_{0}^{x_1 - x_0 \textcolor{white}{- 1}} f(x_0 + \textcolor{red}{1} \cdot n) \cdot \textcolor{red}{1} \textcolor{white}{\cdot \delta} n
                                 \end{align*}
-                                Questa componente traslazionale permette di lavorare con integrali, per esempio, da 1/2 a 3 + 1/2 dove è ovvio che, procedendo dalla partenza incrementando a step unitario, si giunga all'estremo finale. 
-                                <br>
                                 Anche qui, come già effettuato per le derivate, estendiamo la definizione per accettare espressioni qualsiasi come argomento di un integrale (sempre se si esplicita la variabile nella quale l'espressione è vista come funzione).
                                 \begin{align*}
                                     \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} ?(x, y, z, \dots) \textcolor{blue}{\cdot d} x = \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x \mapsto ?(x, y, z, \dots)) \textcolor{blue}{\cdot d} \\
