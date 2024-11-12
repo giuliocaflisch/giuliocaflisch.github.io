@@ -78,16 +78,16 @@
                                 Per quanto riguarda l'integrale finitesimo, invece, è meglio definirlo a piccoli passi.
                                 Prima estendiamo la sommatoria standard con estremi interi, per traslazione, alla sommatoria con estremi a distanza intera (o meglio un multiplo intero dello step di analisi).
                                 Il caso infinitesimo non è affetto da considerazioni di distanza tra gli estremi in quanto, intuitivamente, ogni due numeri reali risiedono a distanza che è multiplo (infinito) dello step (infinitesimo).
+                                Omettiamo le variabili di cammino quando possibile per semplificare la notazione.
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f(x) \textcolor{blue}{\cdot d} x &:= \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \textcolor{white}{\sum}_{0}^{x_1 - x_0 \textcolor{white}{- 1}} f(x_0 + \textcolor{blue}{h} \cdot n) \cdot \textcolor{blue}{h} \textcolor{white}{\cdot \delta} n \\
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f(x) \textcolor{red}{\cdot \delta} x &:= \textcolor{white}{\sum}_{0}^{x_1 - x_0 \textcolor{white}{- 1}} f(x_0 + \textcolor{red}{1} \cdot n) \cdot \textcolor{red}{1} \textcolor{white}{\cdot \delta} n
+                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} &:= \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \textcolor{white}{\sum}_{0}^{\frac{x_1 - x_0}{\textcolor{blue}{h}} \textcolor{white}{- 1}} f(x_0 + \textcolor{blue}{h} \cdot n) \cdot \textcolor{blue}{h} \textcolor{white}{\cdot \delta} n \\
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} &:= \textcolor{white}{\sum}_{0}^{\frac{x_1 - x_0}{\textcolor{red}{1}} \textcolor{white}{- 1}} f(x_0 + \textcolor{red}{1} \cdot n) \cdot \textcolor{red}{1} \textcolor{white}{\cdot \delta} n
                                 \end{align*}
                                 Anche qui, come già effettuato per le derivate, estendiamo la definizione per accettare espressioni qualsiasi come argomento di un integrale (sempre se si esplicita la variabile nella quale l'espressione è vista come funzione).
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} ?(x, y, z, \dots) \textcolor{blue}{\cdot d} x = \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x \mapsto ?(x, y, z, \dots)) \textcolor{blue}{\cdot d} \\
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} ?(x, y, z, \dots) \textcolor{red}{\cdot \delta} x = \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} (x \mapsto ?(x, y, z, \dots)) \textcolor{red}{\cdot \delta}
+                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} ?(x, y, z, \dots) \textcolor{blue}{\cdot d} x = \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x' \mapsto ?(x', y, z, \dots))(x) \textcolor{blue}{\cdot d} x \\
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} ?(x, y, z, \dots) \textcolor{red}{\cdot \delta} x = \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} (x' \mapsto ?(x', y, z, \dots))(x) \textcolor{red}{\cdot \delta} x
                                 \end{align*}
-                                Questo permette di non dover, se non necessario, esplicitare la variabile di cammino dell'integrale.
                                 Bisogna precisare che la variabile di cammino nell'integrale non ha nulla a che fare definizionalmente con la variabile nella quale si esprime il risultato (che dipende dalle variabili poste agli estremi).
                                 L'integrale è un operatore non locale in quanto necessita di due estremi per restituire un risultato.
                                 <br>
@@ -231,21 +231,21 @@
                                 <br>
                                 <h4>Costante</h4>
                                 \begin{align*}
-                                    k(\cdot) = k \Rightarrow \; \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} k \textcolor{blue}{\cdot d} x &= k \cdot x \\
-                                        \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} k \textcolor{red}{\cdot \delta} x &= k \cdot x
+                                    k(\cdot) = k \Rightarrow \; \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} k \textcolor{blue}{\cdot d} &= k \cdot x \\
+                                        \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} k \textcolor{red}{\cdot \delta} &= k \cdot x
                                 \end{align*}
 
                                 <h4>Addizione</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f + g \textcolor{blue}{\cdot d} &= \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} g \textcolor{blue}{\cdot d} \\
-                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} f + g \textcolor{red}{\cdot \delta} &= \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} + \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} g \textcolor{red}{\cdot \delta}
+                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} f + g \textcolor{blue}{\cdot d} &= \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} g \textcolor{blue}{\cdot d} \\
+                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} f + g \textcolor{red}{\cdot \delta} &= \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} + \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} g \textcolor{red}{\cdot \delta}
                                 \end{align*}
                                 <br>
 
                                 <h4>Per parti (dalla derivata della moltiplicazione)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} &= f \cdot g - \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot g \textcolor{blue}{\cdot d} - \textcolor{blue}{0} \cdot \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot \textcolor{blued}{D} g \textcolor{blue}{\cdot d} \\
-                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta} &= f \cdot g - \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot g \textcolor{red}{\cdot \delta} - \textcolor{red}{1} \cdot \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta}
+                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} f \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} &= f \cdot g - \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot g \textcolor{blue}{\cdot d} - \textcolor{blue}{0} \cdot \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot \textcolor{blued}{D} g \textcolor{blue}{\cdot d} \\
+                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta} &= f \cdot g - \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot g \textcolor{red}{\cdot \delta} - \textcolor{red}{1} \cdot \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta}
                                 \end{align*}
                                 Da cui seguono direttamente le regole dell'inverso additivo, della sottrazione, e del prodotto per una costante.
                                 <br>
@@ -253,7 +253,7 @@
 
                                 <h4>Sostituzione (dalla derivata della composizione)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \circ g \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} = \left( \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} \right) \circ g
+                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \circ g \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} = \textcolor{blue}{\int}_{g(x_0)}^{g(x_1) \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d}
                                 \end{align*}
                                 Come visto in precedenza per la derivata della composizione, non può esistere una regola analoga per l'integrale finitesimo.
                                 <br>
@@ -264,13 +264,13 @@
                                 <br>
                                 <b>Esponente diverso da -1</b>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} (x) \cdot^n _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} x &= \frac{(x) \cdot^{n + 1}_{\textcolor{blue}{-0}}}{n + 1} \\
-                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} (x) \cdot^n _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} x &= \frac{(x) \cdot^{n + 1}_{\textcolor{red}{-1}}}{n + 1}
+                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} (t) \cdot^n _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} t &= \frac{(x) \cdot^{n + 1}_{\textcolor{blue}{-0}}}{n + 1} \\
+                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} (t) \cdot^n _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} t &= \frac{(x) \cdot^{n + 1}_{\textcolor{red}{-1}}}{n + 1}
                                 \end{align*}
                                 <b>Esponente uguale a -1</b>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} (x) \cdot^{-1} _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} x &= \ln(x) \\
-                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} (x) \cdot^{-1} _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} x &= H(x)
+                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} (t) \cdot^{-1} _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} t &= \ln(x) \\
+                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} (t) \cdot^{-1} _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} t &= H(x)
                                 \end{align*}
                                 Da notare come la potenza decrementativa per esponente -1, abbia un incremento nel denominatore di 1 che è esattamente quello che serve per definire la serie armonica partendo da zero fino all'estremo decrementato!
                                 Coincidenze? Io non credo.
@@ -279,8 +279,8 @@
 
                                 <h4>Esponenziali elementari</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{\textcolor{blue}{- 0}} \left( \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \right) \textcolor{blue}{\cdot d} x &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
-                                    \textcolor{red}{\sum}_{}^{\textcolor{red}{- 1}} \left( (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}} \right) \textcolor{red}{\cdot \delta} x &= (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}}
+                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} \left( \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{t}{\textcolor{blue}{h}}} \right) \textcolor{blue}{\cdot d} t &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
+                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} \left( (1 + \textcolor{red}{1}) \cdot^{\frac{t}{\textcolor{red}{1}}} \right) \textcolor{red}{\cdot \delta} t &= (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}}
                                 \end{align*}
                             </div>
                         </div>
@@ -320,9 +320,9 @@
                                 <h3>Integrali</h3>
                                 <h4>Polinomi in forma non decrementativa</h4>
                                 \begin{align*}
-                                    \textcolor{red}{\sum}_{0}^{\textcolor{red}{- 1}} x \cdot^2 \textcolor{red}{\cdot \delta} x &= \textcolor{red}{\sum}_{0}^{\textcolor{red}{- 1}} (x) \cdot^2 _{\textcolor{blue}{-0}} \textcolor{red}{\cdot \delta} x \\
-                                        &= \textcolor{red}{\sum}_{0}^{\textcolor{red}{- 1}} \left( (x) \cdot^2 _{\textcolor{red}{-1}} \, - \; (x) \cdot^1 _{\textcolor{red}{-1}} \right) \textcolor{red}{\cdot \delta} x \\
-                                        &= \frac{(x) \cdot^3 _{\textcolor{red}{-1}}}{3} - \frac{(x) \cdot^2 _{\textcolor{red}{-1}}}{2} \\
+                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} t \cdot^2 \textcolor{red}{\cdot \delta} t &= \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} (t) \cdot^2 _{\textcolor{blue}{-0}} \textcolor{red}{\cdot \delta} t \\
+                                        &= \textcolor{red}{\sum}_{0}^{\textcolor{red}{- 1}} \left( (t) \cdot^2 _{\textcolor{red}{-1}} \, - \; (t) \cdot^1 _{\textcolor{red}{-1}} \right) \textcolor{red}{\cdot \delta} t \\
+                                        &= \left(\frac{(x) \cdot^3 _{\textcolor{red}{-1}}}{3} - \frac{(x) \cdot^2 _{\textcolor{red}{-1}}}{2} \right) - \cancel{\left(\frac{(0) \cdot^3 _{\textcolor{red}{-1}}}{3} - \frac{(0) \cdot^2 _{\textcolor{red}{-1}}}{2} \right)}\\
                                         &= \frac{(x) \cdot^3 _{\textcolor{blue}{-0}}}{3} - \frac{(x) \cdot^2 _{\textcolor{blue}{-0}}}{2} + \frac{(x) \cdot^1 _{\textcolor{blue}{-0}}}{6} \\
                                         &= \frac{x \cdot^3}{3} - \frac{x \cdot^2}{2} + \frac{x}{6}
                                 \end{align*}
@@ -345,16 +345,16 @@
                                 Per i curiosi ho calcolato (e invito a fare per conto vostro), l'integrale discreto delle prime potenze della serie arminica e l'ho messo a confronto con l'integrale continuo del logaritmo.
                                 Come potete vedere l'estremo superiore decrementato fornisce grandi analogie ma, a causa del termine in più presente nell0integrazione per parti discreta, l'analogia si sgretola progressivamente.
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \textcolor{blue}{\cdot d} =& \; x \ln(x) - x \\
-                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H \textcolor{red}{\cdot \delta} =& \; x H(x) - x \\
+                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \textcolor{blue}{\cdot d} =& \; x \cdot \ln(x) - x \\
+                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H \textcolor{red}{\cdot \delta} =& \; x \cdot H(x) - x \\
                                     \\
-                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \cdot^2 \textcolor{blue}{\cdot d} =& \; x \ln(x)^2 - 2 x \ln(x) + 2 x \\
-                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}}  H \cdot^2 \textcolor{red}{\cdot \delta} =& \; x H(x)^2 - 2 x H(x) + 2 x \\
+                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \cdot^2 \textcolor{blue}{\cdot d} =& \; x \cdot \ln(x) \cdot^2 - 2 \cdot x \cdot \ln(x) + 2 \cdot x \\
+                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}}  H \cdot^2 \textcolor{red}{\cdot \delta} =& \; x \cdot  H(x) \cdot ^2 - 2 \cdot x \cdot  H(x) + 2 \cdot x \\
                                     &\; \textcolor{grey}{- H(x)} \\
                                     \\
-                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \cdot^3 \textcolor{blue}{\cdot d} =& \; x \ln(x)^3 - 3 x \ln(x)^2 + 6 x \ln(x) - 6 x\\
-                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H \cdot^3 \textcolor{red}{\cdot \delta} =& \; x H(x)^3 - 3 x H(x)^2 + 6 x H(x) - 6 x \\
-                                    & \; \textcolor{grey}{-\frac{3}{2}H\left(x\right)^{2}+3H\left(x\right)-\frac{1}{2}\frac{d}{dx}H\left(x\right)+\frac{\pi^{2}}{12}} \\
+                                    \textcolor{blue}{\int}_{0}^{x \textcolor{blue}{- 0}} \ln \cdot^3 \textcolor{blue}{\cdot d} =& \; x \cdot \ln(x) \cdot^3 - 3 \cdot x \cdot \ln(x) \cdot ^2 + 6 \cdot x \cdot \ln(x) - 6 \cdot x\\
+                                    \textcolor{red}{\sum}_{0}^{x \textcolor{red}{- 1}} H \cdot^3 \textcolor{red}{\cdot \delta} =& \; x \cdot H(x) \cdot^3 - 3 \cdot x \cdot H(x) \cdot^2 + 6 \cdot x \cdot H(x) - 6 \cdot  x \\
+                                    & \; \textcolor{grey}{-\frac{3}{2} \cdot H\left(x\right) \cdot^{2} + 3 \cdot H\left(x\right) - \frac{1}{2} \cdot D H (x) + \frac{\pi^{2}}{12}} \\
                                     \\
                                     \dots
                                 \end{align*}
@@ -370,7 +370,7 @@
                     Come potete notare ho messo in risalto con il colore componenti numeriche che permettono di visualizzare meglio come funzionerebbe una generalizzazione degli operatori analitici discreti per step incrementatico arbitrario.
                     Non sto qui a raccontarvi quanto questa teoria generalizzata sia importante per ogni tipo di simulazioni numeriche e studi di complessità asintotica.
                     Comunque voglio dire che, nonostante questa sia una formulazione personale della sintassi e semantica alla base dell'analisi, è pressocchè impossibile non notare la semplicità e la formalità dietro questa construzione.
-                    Sono convinto che molto di quello che è scritto qui può essere trovato ovunque su internet ma, quasi sicuramente, necessiterebbe più tempo per coglierne.
+                    Sono convinto che molto di quello che è scritto qui può essere trovato ovunque su internet ma, quasi sicuramente, necessiterebbe più tempo per coglierne direttamente la semplicità nascosta.
                     Questo è dovuto al fatto che i matematici non si dedicano a rendere più semplici alcuni concetti per i futuri loro pari.
                     Questa visione elitaria della conoscenza deve finire.
                     Non è vero che chi si ferma a semplificare il passato invece di correre in profondità è perduto.
