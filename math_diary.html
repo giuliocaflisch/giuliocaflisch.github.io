@@ -173,10 +173,13 @@
                                 
                                 <h4>Inverso Compositivo (Leibniz)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D_{_0}} (f \circ^{-1}) = \frac{1}{\textcolor{blue}{D_{_0}} f(f \circ^{-1})} \\
+                                    \textcolor{blue}{D_{_0}} (f \circ^{-1}) &= \frac{1}{\textcolor{blue}{D_{_{d_0 f \circ^{-1}}}} f(f \circ^{-1})} \\
+                                        &= \frac{1}{\textcolor{blue}{D_{_0}} f(f \circ^{-1})} \\
+                                    \\
+                                    \textcolor{red}{\Delta_{_h}} (f \circ^{-1}) &= \frac{1}{\textcolor{red}{\Delta_{_{\delta_h f \circ^{-1}}}} f(f \circ^{-1})} \\
                                 \end{align*}
                                 <br>
-                                A lungo o creduto che non esistesse una regola analoga a quella della derivata composta per la derivata discreta.
+                                A lungo ho creduto che non esistesse una regola analoga a quella della derivata composta per la derivata discreta.
                                 In un certo senzo è vero. Non è possibile, per un fissato step infinitesimo constante, riscrivere la derivata discreta della composizione in termini delle derivate discrete a quel dato step di entrambe.
                                 L'unica strada possibile è quella di accettare che lo step di derivazione possa non essere lo stesso scomponendo e slegando le due funzioni e possa dipendere dal punto di derivazione.
                                 Soprendentemente esiste così una formula per la derivata discreta della composizione ma è molto più brutta di quella per la derivata continua.
@@ -234,8 +237,8 @@
 
                                 <h4>Esponenziali elementari (Napier)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D}_{x} \left(\lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \right) &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
-                                    \textcolor{red}{\Delta}_{x} \left( (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}} \right) &= (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}}
+                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left(\lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \right) &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
+                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left( (1 + \textcolor{red}{h}) \cdot^{\frac{x}{\textcolor{red}{h}}} \right) &= (1 + \textcolor{red}{h}) \cdot^{\frac{x}{\textcolor{red}{h}}}
                                 \end{align*}
                                 Notate qualcuno di familiare?
                                 Ecco tra noi il numero di Napier!
