@@ -26,9 +26,7 @@
                         \textcolor{blue}{D}, &\textcolor{blue}{\int \cdot d} \\
                         \textcolor{red}{\Delta}, &\textcolor{red}{\sum \cdot \delta}
                     \end{align*}
-                    Per una questione di semplicità grafica analizzaiamo, nel caso finitesimo, soltanto lo step unitario.
-                    Il caso generale con step diverso da 0 può essere ricondotto al caso con incremento 1.
-                    In aggiunta a ciò, nel caso discreto usiamo il colore rosso soltanto per indicare le porzioni di formule che continuano ad avere senso nella generalizzazione vista nel paragrafo <b>Estensioni</b>.
+                    Analizziamo il caso finitesimo arbitrario e, nel caso il pedicie di step infinitesimo fosse omesso, lo si considera unitario.
                     <br>
                     <br>
                     <h3>Definizioni</h3>
@@ -40,18 +38,18 @@
                                 Nel caso infinitesimo si considera quindi il limite di tale rapporto.
                                 In un linguaggio puramente formale, come quello fornitoci dal paradigma di programmazione funzionale, la definizione sarebbe la seguente.
                                 \begin{align*}
-                                    \textcolor{blue}{D} &:= \\
+                                    \textcolor{blue}{D_{_0}} &:= \\
                                         & f \mapsto \left(x \mapsto \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \frac{f(x+\textcolor{blue}{h}) - f(x)}{\textcolor{blue}{h}} \right) \\
-                                    \textcolor{red}{\Delta} &:= \\
-                                        & f \mapsto \left(x \mapsto \frac{f(x+\textcolor{red}{1}) - f(x)}{\textcolor{red}{1}}\right)
+                                    \textcolor{red}{\Delta_{_h}} &:= \\
+                                        & f \mapsto \left(x \mapsto \frac{f(x+\textcolor{red}{h}) - f(x)}{\textcolor{red}{h}}\right)
                                 \end{align*}
                                 In pratica la derivata è definita come un'operatore che prende come argomento una funzione e restituisce come risultato la funzione del rapporto incrementale dell'argomento.
                                 <br>
                                 <br>
                                 Utilizziamo inoltre associatività da sinistra verso destra in quanto la derivata di una funzione in uno specifico punto applica dapprima sulla funzione restituendo una nuova funzione, quest'ultima è poi analizzata nel punto specificato.
                                 \begin{align*}
-                                    \textcolor{blue}{D} f(x) &= \left(\textcolor{blue}{D} f\right)(x) \\
-                                    \textcolor{red}{\Delta} f(x) &= \left(\textcolor{red}{\Delta} f\right)(x)
+                                    \textcolor{blue}{D_{_0}} f(x) &= \left(\textcolor{blue}{D_{_0}} f\right)(x) \\
+                                    \textcolor{red}{\Delta_{_h}} f(x) &= \left(\textcolor{red}{\Delta_{_h}} f\right)(x)
                                 \end{align*}
                                 Se così non fosse, e considerassimo la derivata con associatività contraria, non avremmo la "derivata di una funzione" il cui risultato è calcolato in un "particolare punto" come sperato.
                                 Avremmo invece la "derivata" di "una funzione già calcolata in un particolare punto", che sarebbe decisamente sbagliato.
@@ -59,34 +57,36 @@
                                 <br>
                                 Per finire estendiamo la definizione di derivata per accettare espressioni qualsiasi (non per forza funzioni esplicitate nella variabile argomento) se si dichiara anche la variabile interna analizzata.
                                 \begin{align*}
-                                    \textcolor{blue}{D}_{x} \left(?(x, y, z, \dots) \right) &= \textcolor{blue}{D} \left(x' \mapsto ?(x', y, z, \dots) \right)(x) \\
-                                    \textcolor{red}{\Delta}_{x} \left(?(x, y, z, \dots) \right) &= \textcolor{red}{\Delta} \left(x' \mapsto ?(x', y, z, \dots) \right)(x)
+                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left(expr(x, y, z, \dots) \right) &= \textcolor{blue}{D_{_0}} \left(x' \mapsto expr(x', y, z, \dots) \right)(x) \\
+                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left(expr(x, y, z, \dots) \right) &= \textcolor{red}{\Delta_{_h}} \left(x' \mapsto expr(x', y, z, \dots) \right)(x)
                                 \end{align*}
-                                In realtà non servirebbe neanche rinominare la variabile che definisce la funzione deta l'espressione e il parametro di interesse.
-                                Ovviamente, nel caso delle funzioni, le fue notazioni coincidono.
+                                In realtà non servirebbe neanche rinominare la variabile che definisce la funzione data l'espressione e il parametro di interesse.
+                                Ovviamente, nel caso delle funzioni, le fue notazioni coincidono, usando l'associatività da destra verso sinistra nella nuova forma introdotta.
                                 \begin{align*}
-                                    \textcolor{blue}{D}_{x} \left( f(x) \right) &= \textcolor{blue}{D} f(x) \\
-                                    \textcolor{red}{\Delta}_{x} \left( f(x) \right) &= \textcolor{red}{\Delta} f(x)
+                                    \frac{\textcolor{blue}{d_{_0}}f(x)}{\textcolor{blue}{d_{_0}}x} = \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} f(x) &= \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left( f(x) \right) = \textcolor{blue}{D_{_0}} f(x) \\
+                                    \frac{\textcolor{red}{\delta_{_h}}f(x)}{\textcolor{red}{\delta_{_h}}x} = \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} f(x) &= \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left( f(x) \right) = \textcolor{red}{\Delta_{_h}} f(x)
                                 \end{align*}
+                                E' possibile immaginare di definire, oltre all'operatore di derivata infinitesima e finitesima, anche gli operatori di differenziali totali finitesimi e infinitesimi (in effetti molti defniscono questi nel caso fnintesimo con lettere maiuscole, cosa che mi infastidisce alquanto).
+                                Fare ciò nel caso finitesimo è semplice. Decisamente meno per l'inifinitesimo, dove serve costruire l'enorme teoreia a me sconosciuta della geometria differenziale.
                                 <br>
                                 <br>
 
                                 <h3>Integrali (Riemann)</h3>
                                 Definiamo gli integrali nella maniera classica.
-                                Ricordiamo che, per l'integrale infinitesimo, esiste una generalizzazione dovuta al matematico Lebesgue che permette di integrare che, secondo la definizione corrente, che altrimenti sono prive di senso tramite la teoria della misura.
+                                Ricordiamo che, per l'integrale infinitesimo, esiste una generalizzazione dovuta al matematico Lebesgue che permette di integrare che, secondo la definizione corrente sono prive di senso, tramite la teoria della misura.
                                 <br>
                                 Per quanto riguarda l'integrale finitesimo, invece, è meglio definirlo a piccoli passi.
-                                Prima estendiamo la sommatoria standard con estremi interi, per traslazione, alla sommatoria con estremi a distanza intera (o meglio un multiplo intero dello step di analisi).
+                                Prima estendiamo la sommatoria standard con estremi interi, per traslazione, alla sommatoria con estremi a distanza multiplo intero dello step di analisi.
                                 Il caso infinitesimo non è affetto da considerazioni di distanza tra gli estremi in quanto, intuitivamente, ogni due numeri reali risiedono a distanza che è multiplo (infinito) dello step (infinitesimo).
                                 Omettiamo le variabili di cammino quando possibile per semplificare la notazione.
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} &:= \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \textcolor{white}{\sum}_{0}^{\frac{x_1 - x_0}{\textcolor{blue}{h}} \textcolor{white}{- 1}} f(x_0 + \textcolor{blue}{h} \cdot n) \cdot \textcolor{blue}{h} \textcolor{white}{\cdot \delta} n \\
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} &:= \textcolor{white}{\sum}_{0}^{\frac{x_1 - x_0}{\textcolor{red}{1}} \textcolor{white}{- 1}} f(x_0 + \textcolor{red}{1} \cdot n) \cdot \textcolor{red}{1} \textcolor{white}{\cdot \delta} n
+                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} &:= \lim_{\textcolor{blue}{h} \to \textcolor{blue}{0}} \textcolor{white}{\sum}_{0}^{\frac{x_1 - x_0}{\textcolor{blue}{h}} \textcolor{white}{- 1}} f(x_0 + \textcolor{blue}{h} \cdot n) \cdot \textcolor{blue}{h} \textcolor{white}{\cdot \delta} n \\
+                                    \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} &:= \textcolor{white}{\sum}_{0}^{\frac{x_1 - x_0}{\textcolor{red}{h}} \textcolor{white}{- 1}} f(x_0 + \textcolor{red}{h} \cdot n) \cdot \textcolor{red}{h} \textcolor{white}{\cdot \delta} n
                                 \end{align*}
                                 Anche qui, come già effettuato per le derivate, estendiamo la definizione per accettare espressioni qualsiasi come argomento di un integrale (sempre se si esplicita la variabile nella quale l'espressione è vista come funzione).
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} ?(x, y, z, \dots) \textcolor{blue}{\cdot d} x = \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x' \mapsto ?(x', y, z, \dots)) \textcolor{blue}{\cdot d} \\
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} ?(x, y, z, \dots) \textcolor{red}{\cdot \delta} x = \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} (x' \mapsto ?(x', y, z, \dots)) \textcolor{red}{\cdot \delta}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} expr(x, y, z, \dots) \textcolor{blue}{\cdot d_{_0}} x = \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x' \mapsto expr(x', y, z, \dots)) \textcolor{blue}{\cdot d_{_0}} \\
+                                    \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} expr(x, y, z, \dots) \textcolor{red}{\cdot \delta_{_h}} x = \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} (x' \mapsto expr(x', y, z, \dots)) \textcolor{red}{\cdot \delta_{_h}}
                                 \end{align*}
                                 Bisogna precisare che la variabile di cammino nell'integrale non ha nulla a che fare definizionalmente con la variabile nella quale si esprime il risultato (che dipende dalle variabili poste agli estremi).
                                 L'integrale è un operatore non locale in quanto necessita di due estremi per restituire un risultato.
@@ -96,11 +96,11 @@
                                 <br>
                                 Useremo la convenzione di scrivere gli estremi decrementati dello step (poichè semplifica pressochè tutti i teoremi) e quella di quasi-inversione degli estremi in ordine decrescente che segue (dato che questa è l'unica che preserva sia la somma triviale uguale a 0 per estremi uguali a meno di decremento e la concatenazione di intervalli).
                                 \begin{align*}
-                                    : \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} &= 0 - \textcolor{blue}{\int}_{x_1}^{x_0 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} \\
-                                    : \textcolor{blue}{\int}_{x_0}^{x_0 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} &= 0 \\
+                                    : \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} &= 0 - \textcolor{blue}{_{_0} \!\! \int}_{x_1}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} \\
+                                    : \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_0 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} &= 0 \\
                                     \\
-                                    : \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} &= 0 - \textcolor{red}{\sum}_{x_1}^{x_0 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} \\
-                                    : \textcolor{red}{\sum}_{x_0}^{x_0 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} &= 0
+                                    : \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} &= 0 - \textcolor{red}{_{_h} \! \sum}_{x_1}^{x_0 \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} \\
+                                    : \textcolor{red}{_{_h} \!\sum}_{x_0}^{x_0 \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} &= 0
                                 \end{align*}
                             </div>
                         </div>
@@ -114,14 +114,14 @@
                             <div class="col">
                                 <h3>Derivata dell'integrale</h3>
                                 \begin{align*}
-                                \textcolor{blue}{D}_{x} \left(\textcolor{blue}{\int}_{x_0}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} \right) &= f(x) \\
-                                    \textcolor{red}{\Delta}_{x} \left(\textcolor{red}{\sum}_{x_0}^{x \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} \right) &= f(x)
+                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left(\textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} \right) &= f(x) \\
+                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left(\textcolor{red}{_{_h} \! \sum}_{x_0}^{x \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} \right) &= f(x)
                                 \end{align*}
 
                                 <h3>Integrale della derivata</h3>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} \textcolor{blue}{D} f \textcolor{blue}{\cdot d} &= f(x_1) - f(x_0) \\
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} \textcolor{red}{\Delta} f \textcolor{red}{\cdot \delta} &= f(x_1) - f(x_0)
+                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} \textcolor{blue}{D_{_0}} f \textcolor{blue}{\cdot d_{_0}} &= f(x_1) - f(x_0) \\
+                                    \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} \textcolor{red}{\Delta_{_h}} f \textcolor{red}{\cdot \delta_{_h}} &= f(x_1) - f(x_0)
                                 \end{align*}
                             </div>
                         </div>
@@ -137,26 +137,26 @@
 
                                 <h4>Costante</h4>
                                 \begin{align*}
-                                    k(\cdot) = k \Rightarrow & \; \textcolor{blue}{D} k = 0 \\
-                                        & \; \textcolor{red}{\Delta} k = 0
+                                    k(\cdot) = k \Rightarrow & \; \textcolor{blue}{D_{_0}} k = 0 \\
+                                        & \; \textcolor{red}{\Delta_{_h}} k = 0
                                 \end{align*}
 
                                 <h4>Addizione</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} (f + g) &= \textcolor{blue}{D} f + \textcolor{blue}{D} g \\
-                                    \textcolor{red}{\Delta} (f + g) &= \textcolor{red}{\Delta} f + \textcolor{red}{\Delta} g
+                                    \textcolor{blue}{D_{_0}} (f + g) &= \textcolor{blue}{D_{_0}} f + \textcolor{blue}{D_{_0}} g \\
+                                    \textcolor{red}{\Delta_{_h}} (f + g) &= \textcolor{red}{\Delta_{_h}} f + \textcolor{red}{\Delta_{_h}} g
                                 \end{align*}
 
                                 <h4>Moltiplicazione</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} \left(f \cdot g\right) &= \textcolor{blue}{D} f \cdot g + f \cdot \textcolor{blue}{D} g + \textcolor{blue}{0} \cdot \textcolor{blue}{D} f \cdot \textcolor{blue}{D} g \\
-                                    \textcolor{red}{\Delta} \left(f \cdot g\right) &= \textcolor{red}{\Delta} f \cdot g + f \cdot \textcolor{red}{\Delta} g + \textcolor{red}{1} \cdot \textcolor{red}{\Delta} f \cdot \textcolor{red}{\Delta} g
+                                    \textcolor{blue}{D_{_0}} \left(f \cdot g\right) &= \textcolor{blue}{D_{_0}} f \cdot g + f \cdot \textcolor{blue}{D_{_0}} g + \textcolor{blue}{0} \cdot \textcolor{blue}{D_{_0}} f \cdot \textcolor{blue}{D_{_0}} g \\
+                                    \textcolor{red}{\Delta_{_h}} \left(f \cdot g\right) &= \textcolor{red}{\Delta_{_h}} f \cdot g + f \cdot \textcolor{red}{\Delta_{_h}} g + \textcolor{red}{h} \cdot \textcolor{red}{\Delta_{_h}} f \cdot \textcolor{red}{\Delta_{_h}} g
                                 \end{align*}
 
                                 <h4>Inverso moltiplicativo</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} (f \cdot^{-1}) &= - \frac{\textcolor{blue}{D} f}{f \cdot (f + \textcolor{blue}{0} \cdot \textcolor{blue}{D} f)} \\
-                                    \textcolor{red}{\Delta} (f \cdot^{-1}) &= - \frac{\textcolor{red}{\Delta} f}{f \cdot (f + \textcolor{red}{1} \cdot \textcolor{red}{\Delta} f)} \\
+                                    \textcolor{blue}{D_{_0}} (f \cdot^{-1}) &= - \frac{\textcolor{blue}{D_{_0}} f}{f \cdot (f + \textcolor{blue}{0} \cdot \textcolor{blue}{D_{_0}} f)} \\
+                                    \textcolor{red}{\Delta_{_h}} (f \cdot^{-1}) &= - \frac{\textcolor{red}{\Delta_{_h}} f}{f \cdot (f + \textcolor{red}{h} \cdot \textcolor{red}{\Delta_{_h}} f)} \\
                                 \end{align*}
                                 <br>
                                 Da cui seguono direttamente le regole dell'inverso additivo, della sottrazione, del prodotto per una costante e del rapporto.
@@ -165,16 +165,34 @@
 
                                 <h4>Composizione (Leibniz)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} (f \circ g) = \textcolor{blue}{D} f(g) \cdot \textcolor{blue}{D} g \\
+                                    \textcolor{blue}{D_{_0}} (f \circ g) &= \textcolor{blue}{D_{_{d_{_0} g}}} f(g) \cdot \textcolor{blue}{D_{_0}} g \\
+                                        &= \textcolor{blue}{D_{_0}} f(g) \cdot \textcolor{blue}{D_{_0}} g \\
+                                    \\
+                                    \textcolor{red}{\Delta_{_h}} (f \circ g) &= \textcolor{red}{\Delta_{_{\delta_{_h} g}}} f(g) \cdot \textcolor{red}{\Delta_{_h}} g \\
                                 \end{align*}
                                 
                                 <h4>Inverso Compositivo (Leibniz)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D} (f \circ^{-1}) = \frac{1}{\textcolor{blue}{D} f(f \circ^{-1})} \\
+                                    \textcolor{blue}{D_{_0}} (f \circ^{-1}) = \frac{1}{\textcolor{blue}{D_{_0}} f(f \circ^{-1})} \\
                                 \end{align*}
                                 <br>
-                                Interessante notare che non possono esistere analoghe regole per la composizione nel caso della derivata finitesimale.
-                                L'impossibilità è dovuta al fatto che, per variazione non infinitesima della variablie di derivazione, la funzione interna alla composizione varia in maniera arbitrariamente grande quindi non si può estrarre alcuna informazione locale a catena.
+                                A lungo o creduto che non esistesse una regola analoga a quella della derivata composta per la derivata discreta.
+                                In un certo senzo è vero. Non è possibile, per un fissato step infinitesimo constante, riscrivere la derivata discreta della composizione in termini delle derivate discrete a quel dato step di entrambe.
+                                L'unica strada possibile è quella di accettare che lo step di derivazione possa non essere lo stesso scomponendo e slegando le due funzioni e possa dipendere dal punto di derivazione.
+                                Soprendentemente esiste così una formula per la derivata discreta della composizione ma è molto più brutta di quella per la derivata continua.
+                                In quella continua, dato che il nuovo step risultante dalla variazione infinitesima della variabile primordiale induce uno step a sua volta infintesimo a sequito dell'applicazione alla funzione interna, possiamo considerare il nuovo step di variazione interno come pure infinitesimo alla pari.
+                                Questo è ovviamente impossibile nel caso finitesimo dato che, una variazione fissa nell'argomento applicata alla funzione interna, genera una variazione distinta completamente distinta.
+                                \begin{align*}
+                                    \frac{\textcolor{blue}{d_{_0}}f(g(x))}{\textcolor{blue}{d_{_0}}x} &=^? \frac{\textcolor{blue}{d_{_0}}f(g(x))}{\textcolor{blue}{d_{_0}}g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
+                                            & \quad \quad =^? \left( \frac{\textcolor{blue}{d_{_0}}f(y)}{\textcolor{blue}{d_{_0}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
+                                        &=^? \left( \frac{\textcolor{blue}{d_{_{dg(x)}}}f(y)}{\textcolor{blue}{d_{_{dg(x)}}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
+                                        &=^? \left( \frac{\textcolor{blue}{d_{_0}}f(y)}{\textcolor{blue}{d_{_0}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
+                                    \\
+                                    \frac{\textcolor{red}{\delta_{_h}}f(g(x))}{\textcolor{red}{\delta_{_h}}x} &=^! \frac{\textcolor{red}{\delta_{_h}}f(g(x))}{\textcolor{red}{\delta_{_h}}g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x} \\
+                                            & \quad \quad \cancel{=^? \left( \frac{\textcolor{red}{\delta_{_h}}f(y)}{\textcolor{red}{\delta_{_h}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x}} \\
+                                        &=^! \left( \frac{\textcolor{red}{\delta_{_{\delta g(x)}}}f(y)}{\textcolor{red}{\delta_{_{\delta g(x)}}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x}
+                                \end{align*}
+                                Ovviamente questa formula ha soltanto senso quando il nuovo differenziale generato dalla funzione interna è diverso da 0.
                                 <br>
                                 <br>
 
@@ -191,20 +209,20 @@
                                 Ecco qui la super concisa definizione data dal lavoro precedente.
                                 \begin{align*}
                                     (x) \cdot^n_{\textcolor{blue}{-0}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{blue}{0}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k} \\
-                                    (x) \cdot^n_{\textcolor{red}{-1}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{red}{1}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k} \\
+                                    (x) \cdot^n_{\textcolor{red}{-h}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{red}{h}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k} \\
                                 \end{align*}
                                 Possiamo notare che, per esponente negatico, moltiplichiamo al denominatore potenze incrementative partendo dall'incremento di uno step (e non di 0 come per esponente positivo).
                                 <br>
                                 <br>
                                 Sembra incredibile ma questa, per definizione con esponenti interi, vale la classica regola di derivazione delle potenze scritta sotto. 
                                 \begin{align*}
-                                    \textcolor{blue}{D}_{x} \left((x) \cdot^n_{\textcolor{blue}{-0}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{blue}{-0}} \\
-                                    \textcolor{red}{\Delta}_{x} \left((x) \cdot^n_{\textcolor{red}{-1}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{red}{-1}}
+                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left((x) \cdot^n_{\textcolor{blue}{-0}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{blue}{-0}} \\
+                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left((x) \cdot^n_{\textcolor{red}{-h}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{red}{-h}}
                                 \end{align*}
                                 Ancor più entusiasmante è il fatto che esiste un'estensione per esponente complesso generico usando la continuazione analitica del fattoriale (che io indico con la lettera greca Digamma).
                                 \begin{align*}
                                     (x) \cdot^n_{\textcolor{blue}{- 0}} &:= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} \textcolor{blue}{h} \cdot^{n} \cdot \frac{\digamma\left(\frac{x}{\textcolor{blue}{h}}\right)}{\digamma\left(\frac{x}{\textcolor{blue}{h}} - n \right)} \\
-                                    (x) \cdot^n_{\textcolor{red}{- 1}} &:= \textcolor{red}{1} \cdot^{n} \cdot \frac{\digamma\left(\frac{x}{\textcolor{red}{1}}\right)}{\digamma\left(\frac{x}{\textcolor{red}{1}} - n \right)}
+                                    (x) \cdot^n_{\textcolor{red}{- h}} &:= \textcolor{red}{h} \cdot^{n} \cdot \frac{\digamma\left(\frac{x}{\textcolor{red}{h}}\right)}{\digamma\left(\frac{x}{\textcolor{red}{h}} - n \right)}
                                 \end{align*}
                                 Questa definizione non ha senso per esponente intero negativo nel caso a step decrementativo finitesimo uguale a 1.
                                 Ma, sorprendentemente, la definizione precedente in questo caso ha perfettamente senso ed è proprio quella che si ottiene al limite come continuazione.
@@ -253,7 +271,7 @@
 
                                 <h4>Sostituzione (dalla derivata della composizione)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \circ g \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} = \textcolor{blue}{\int}_{g(x_0)}^{g(x_1) \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \circ g \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} = \textcolor{blue}{\int}_{g(x_0)}^{g(x_1) \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d}
                                 \end{align*}
                                 Come visto in precedenza per la derivata della composizione, non può esistere una regola analoga per l'integrale finitesimo.
                                 <br>
@@ -298,7 +316,7 @@
                                 <h3>Integrali</h3>
                                 <h4>Teorema di compatibilità (Euler e Maclaurin)</h4>
                                 \begin{align*}
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} =& \textcolor{blue}{\int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{white}{\sum}_{0}^{\infty - 1} \frac{B(k + 1)}{\digamma(x + 1)} \cdot \textcolor{red}{1} \cdot^{k+1} \cdot (\textcolor{blue}{D} ^{\circ k} f(x_1) - \textcolor{blue}{D}^{\circ k} f(x_0)) \textcolor{white}{\cdot \delta} k
+                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} =& \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{white}{\sum}_{0}^{\infty - 1} \frac{B(k + 1)}{\digamma(x + 1)} \cdot \textcolor{red}{1} \cdot^{k+1} \cdot (\textcolor{blue}{D} ^{\circ k} f(x_1) - \textcolor{blue}{D}^{\circ k} f(x_0)) \textcolor{white}{\cdot \delta} k
                                 \end{align*}
                                 L'ugualianza vale nel caso in cui la serie converge e, ovviamente, ha senso solo se la funzione sia derivabile infinitesimalmente un numero arbitrario di volte.
                                 Guardando alla formula osserviamo che, sul lato sinistro, l'ipotesi che gli estremi siano distanti tra loro un numero intero non è utilizza.
