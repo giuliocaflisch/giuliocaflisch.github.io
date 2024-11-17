@@ -173,10 +173,10 @@
                                 
                                 <h4>Inverso Compositivo (Leibniz)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D_{_0}} (f \circ^{-1}) &= \frac{1}{\textcolor{blue}{D_{_{d_0 f \circ^{-1}}}} f(f \circ^{-1})} \\
+                                    \textcolor{blue}{D_{_0}} (f \circ^{-1}) &= \frac{1}{\textcolor{blue}{D_{_{d_{_0} f \circ^{-1}}}} f(f \circ^{-1})} \\
                                         &= \frac{1}{\textcolor{blue}{D_{_0}} f(f \circ^{-1})} \\
                                     \\
-                                    \textcolor{red}{\Delta_{_h}} (f \circ^{-1}) &= \frac{1}{\textcolor{red}{\Delta_{_{\delta_h f \circ^{-1}}}} f(f \circ^{-1})} \\
+                                    \textcolor{red}{\Delta_{_h}} (f \circ^{-1}) &= \frac{1}{\textcolor{red}{\Delta_{_{\delta_{_h} f \circ^{-1}}}} f(f \circ^{-1})} \\
                                 \end{align*}
                                 <br>
                                 A lungo ho creduto che non esistesse una regola analoga a quella della derivata composta per la derivata discreta.
@@ -188,7 +188,7 @@
                                 \begin{align*}
                                     \frac{\textcolor{blue}{d_{_0}}f(g(x))}{\textcolor{blue}{d_{_0}}x} &=^? \frac{\textcolor{blue}{d_{_0}}f(g(x))}{\textcolor{blue}{d_{_0}}g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
                                             & \quad \quad =^? \left( \frac{\textcolor{blue}{d_{_0}}f(y)}{\textcolor{blue}{d_{_0}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
-                                        &=^? \left( \frac{\textcolor{blue}{d_{_{dg(x)}}}f(y)}{\textcolor{blue}{d_{_{dg(x)}}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
+                                        &=^? \left( \frac{\textcolor{blue}{d_{_{d_{_0}g(x)}}}f(y)}{\textcolor{blue}{d_{_{d_{_0}g(x)}}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
                                         &=^? \left( \frac{\textcolor{blue}{d_{_0}}f(y)}{\textcolor{blue}{d_{_0}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{blue}{d_{_0}}g(x)}{\textcolor{blue}{d_{_0}}x} \\
                                     \\
                                     \frac{\textcolor{red}{\delta_{_h}}f(g(x))}{\textcolor{red}{\delta_{_h}}x} &=^! \frac{\textcolor{red}{\delta_{_h}}f(g(x))}{\textcolor{red}{\delta_{_h}}g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x} \\
@@ -196,6 +196,8 @@
                                         &=^! \left( \frac{\textcolor{red}{\delta_{_{\delta g(x)}}}f(y)}{\textcolor{red}{\delta_{_{\delta g(x)}}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x}
                                 \end{align*}
                                 Ovviamente questa formula ha soltanto senso quando il nuovo differenziale generato dalla funzione interna è diverso da 0.
+                                Nel caso in cui la funzione interna non varia ne segue ovviamente che anche quella esterna non subisce a cascata variazione.
+                                Quindi, volendo, la derivata interna moltiplicata da sinistra di valore 0 risolve anche questo caso passando al limite la derivata discreta (che tanto viene annullata).
                                 <br>
                                 <br>
 
@@ -236,13 +238,19 @@
                                 <br>
 
                                 <h4>Esponenziali elementari (Napier)</h4>
+                                Prima definiamo le basi esponenziali elementari.
                                 \begin{align*}
-                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left(\lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \right) &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
-                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left( (1 + \textcolor{red}{h}) \cdot^{\frac{x}{\textcolor{red}{h}}} \right) &= (1 + \textcolor{red}{h}) \cdot^{\frac{x}{\textcolor{red}{h}}}
+                                    \textcolor{blue}{e_{_0}} &:= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{1}{\textcolor{blue}{h}}} \\
+                                    \textcolor{red}{e_{_h}} &:= (1 + \textcolor{red}{h}) \cdot^{\frac{1}{\textcolor{red}{h}}}
+                                \end{align*}
+                                Ora possiamo analizzare le derivate.
+                                \begin{align*}
+                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \textcolor{blue}{e_{_0}} \cdot^x &= \textcolor{blue}{e_{_0}} \cdot^x \\
+                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \textcolor{red}{e_{_h}} \cdot^x &= \textcolor{red}{e_{_h}} \cdot^x
                                 \end{align*}
                                 Notate qualcuno di familiare?
                                 Ecco tra noi il numero di Napier!
-                                In un certo senso, espresso da questa formula, il numero di Napier e due sono analoghi nel calcolo infinitesimo e finitesimo rispettivamente.
+                                In un certo senso, espresso da questa formula, il numero di Napier e due sono analoghi nel calcolo infinitesimo e finitesimo a step unitario rispettivamente.
                                 <br>
                                 <br>
                                 
@@ -252,21 +260,21 @@
                                 <br>
                                 <h4>Costante</h4>
                                 \begin{align*}
-                                    k(\cdot) = k \Rightarrow \; \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} k \textcolor{blue}{\cdot d} &= k \cdot x \\
-                                        \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} k \textcolor{red}{\cdot \delta} &= k \cdot x
+                                    k(\cdot) = k \Rightarrow \; \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} k \textcolor{blue}{\cdot d_{_0}} &= k \cdot x \\
+                                        \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- h}} k \textcolor{red}{\cdot \delta_{_h}} &= k \cdot x
                                 \end{align*}
 
                                 <h4>Addizione</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} f + g \textcolor{blue}{\cdot d} &= \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} g \textcolor{blue}{\cdot d} \\
-                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} f + g \textcolor{red}{\cdot \delta} &= \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} + \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} g \textcolor{red}{\cdot \delta}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} \left(f + g\right) \textcolor{blue}{\cdot d_{_0}} &= \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} + \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} g \textcolor{blue}{\cdot d_{_0}} \\
+                                    \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- 1}} \left(f + g \right)\textcolor{red}{\cdot \delta_{_h}} &= \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} + \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- h}} g \textcolor{red}{\cdot \delta_{_h}}
                                 \end{align*}
                                 <br>
 
                                 <h4>Per parti (dalla derivata della moltiplicazione)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} f \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} &= f \cdot g - \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot g \textcolor{blue}{\cdot d} - \textcolor{blue}{0} \cdot \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} \textcolor{blue}{D} f \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} \\
-                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta} &= f \cdot g - \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot g \textcolor{red}{\cdot \delta} - \textcolor{red}{1} \cdot \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} \textcolor{red}{\Delta} f \cdot \textcolor{red}{\Delta} g \textcolor{red}{\cdot \delta}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} f \cdot \textcolor{blue}{D_{_0}} g \textcolor{blue}{\cdot d_{_0}} &= f \cdot g - \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} \textcolor{blue}{D_{_0}} f \cdot g \textcolor{blue}{\cdot d_{_0}} - \textcolor{blue}{0} \cdot \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} \textcolor{blue}{D_{_0}} f \cdot \textcolor{blue}{D_{_0}} g \textcolor{blue}{\cdot d_{_0}} \\
+                                    \textcolor{red}{_{_h} \!\! \sum}_{}^{x \textcolor{red}{- h}} f \cdot \textcolor{red}{\Delta_{_h}} g \textcolor{red}{\cdot \delta_{_h}} &= f \cdot g - \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- h}} \textcolor{red}{\Delta_{_h}} f \cdot g \textcolor{red}{\cdot \delta_{_h}} - \textcolor{red}{h} \cdot \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- h}} \textcolor{red}{\Delta_{_h}} f \cdot \textcolor{red}{\Delta_{_h}} g \textcolor{red}{\cdot \delta_{_h}}
                                 \end{align*}
                                 Da cui seguono direttamente le regole dell'inverso additivo, della sottrazione, e del prodotto per una costante.
                                 <br>
@@ -274,10 +282,9 @@
 
                                 <h4>Sostituzione (dalla derivata della composizione)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \circ g \cdot \textcolor{blue}{D} g \textcolor{blue}{\cdot d} = \textcolor{blue}{\int}_{g(x_0)}^{g(x_1) \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \circ g \cdot \textcolor{blue}{D_{_0}} g \textcolor{blue}{\cdot d_{_0}} = \textcolor{blue}{_{_0} \!\! \int}_{g(x_0)}^{g(x_1) \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}}
                                 \end{align*}
-                                Come visto in precedenza per la derivata della composizione, non può esistere una regola analoga per l'integrale finitesimo.
-                                <br>
+                                La regola di sostituzione, in questa formulazione, esiste solo per l'analisi continua, ovviamente integrando a step finitesimo h entrambi i lati della derivata della composizione otteniamo una formulazione valida ma poco utile in pratica.
                                 <br>
 
                                 <h4>Potenze decrementative</h4>
@@ -285,23 +292,25 @@
                                 <br>
                                 <b>Esponente diverso da -1</b>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} (t) \cdot^n _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} t &= \frac{(x) \cdot^{n + 1}_{\textcolor{blue}{-0}}}{n + 1} \\
-                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} (t) \cdot^n _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} t &= \frac{(x) \cdot^{n + 1}_{\textcolor{red}{-1}}}{n + 1}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} (t) \cdot^n _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d_{_0}} t &= \frac{(x) \cdot^{n + 1}_{\textcolor{blue}{-0}}}{n + 1} \\
+                                    \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- 1}} (t) \cdot^n _{\textcolor{red}{-h}} \textcolor{red}{\cdot \delta_{_h}} t &= \frac{(x) \cdot^{n + 1}_{\textcolor{red}{-h}}}{n + 1}
                                 \end{align*}
                                 <b>Esponente uguale a -1</b>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} (t) \cdot^{-1} _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d} t &= \ln(x) \\
-                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} (t) \cdot^{-1} _{\textcolor{red}{-1}} \textcolor{red}{\cdot \delta} t &= H(x)
+                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (t) \cdot^{-1} _{\textcolor{blue}{-0}} \textcolor{blue}{\cdot d_{_0}} t &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} \left(H\left(\frac{x_1}{\textcolor{blue}{h}}\right) - H\left(\frac{x_0}{\textcolor{blue}{h}}\right)\right)\\
+                                        &= \ln(x_1) - \ln(x_0) \\
+                                    \\
+                                    \textcolor{red}{_{_0} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} (t) \cdot^{-1} _{\textcolor{red}{-h}} \textcolor{red}{\cdot \delta_{_h}} t &= H\left(\frac{x_1}{\textcolor{red}{h}}\right) - H\left(\frac{x_0}{\textcolor{red}{h}}\right)
                                 \end{align*}
-                                Da notare come la potenza decrementativa per esponente -1, abbia un incremento nel denominatore di 1 che è esattamente quello che serve per definire la serie armonica partendo da zero fino all'estremo decrementato!
+                                Da notare come la potenza decrementativa a step 1 per esponente -1, abbia un incremento nel denominatore di 1 che è esattamente quello che serve per definire la serie armonica partendo da zero fino all'estremo decrementato!
                                 Coincidenze? Io non credo.
                                 <br>
                                 <br>
 
                                 <h4>Esponenziali elementari</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{\int}_{}^{x \textcolor{blue}{- 0}} \left( \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{t}{\textcolor{blue}{h}}} \right) \textcolor{blue}{\cdot d} t &= \lim_{\textcolor{blue}{h} \rightarrow \textcolor{blue}{0}} (1 + \textcolor{blue}{h}) \cdot^{\frac{x}{\textcolor{blue}{h}}} \\
-                                    \textcolor{red}{\sum}_{}^{x \textcolor{red}{- 1}} \left( (1 + \textcolor{red}{1}) \cdot^{\frac{t}{\textcolor{red}{1}}} \right) \textcolor{red}{\cdot \delta} t &= (1 + \textcolor{red}{1}) \cdot^{\frac{x}{\textcolor{red}{1}}}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{}^{x \textcolor{blue}{- 0}} \textcolor{blue}{e_{_0}} \cdot^x \textcolor{blue}{\cdot d_{_0}} t &= \textcolor{blue}{e_{_0}} \cdot^x \\
+                                    \textcolor{red}{_{_h} \! \sum}_{}^{x \textcolor{red}{- h}} \textcolor{red}{e_{_h}} \cdot^x \textcolor{red}{\cdot \delta_{_h}} t &= \textcolor{red}{e_{_h}} \cdot^x
                                 \end{align*}
                             </div>
                         </div>
@@ -319,9 +328,9 @@
                                 <h3>Integrali</h3>
                                 <h4>Teorema di compatibilità (Euler e Maclaurin)</h4>
                                 \begin{align*}
-                                    \textcolor{red}{\sum}_{x_0}^{x_1 \textcolor{red}{- 1}} f \textcolor{red}{\cdot \delta} =& \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d} + \textcolor{white}{\sum}_{0}^{\infty - 1} \frac{B(k + 1)}{\digamma(x + 1)} \cdot \textcolor{red}{1} \cdot^{k+1} \cdot (\textcolor{blue}{D} ^{\circ k} f(x_1) - \textcolor{blue}{D}^{\circ k} f(x_0)) \textcolor{white}{\cdot \delta} k
+                                    \textcolor{red}{_{_h} \; \sum}_{x_0}^{x_1 \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} = \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} + \textcolor{white}{\sum}_{0}^{\infty - 1} \frac{B(k + 1)}{\digamma(x + 1)} \cdot \textcolor{red}{h} \cdot^{k+1} \cdot (\textcolor{blue}{D} \circ^k f(x_1) - \textcolor{blue}{D} \circ^k f(x_0)) \textcolor{white}{\cdot \delta} k
                                 \end{align*}
-                                L'ugualianza vale nel caso in cui la serie converge e, ovviamente, ha senso solo se la funzione sia derivabile infinitesimalmente un numero arbitrario di volte.
+                                L'ugualianza vale nel caso in cui la serie converge e, ovviamente, ha senso solo se la funzione sia derivabile infinitesimamente un numero arbitrario di volte.
                                 Guardando alla formula osserviamo che, sul lato sinistro, l'ipotesi che gli estremi siano distanti tra loro un numero intero non è utilizza.
                                 Questo ci invita a pensare che, magari, questa proposizione (che è un teorema nel caso di estremi a distanza intera), possa essere considerato una definizione per estremi a distanza arbitraria (nel caso in cui la serie converga).
                                 Immaginate per un attimo il potere di questa cosa.
