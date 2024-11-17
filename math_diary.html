@@ -84,8 +84,8 @@
                                 \end{align*}
                                 Anche qui, come già effettuato per le derivate, estendiamo la definizione per accettare espressioni qualsiasi come argomento di un integrale (sempre se si esplicita la variabile nella quale l'espressione è vista come funzione).
                                 \begin{align*}
-                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} expr(x, y, z, \dots) \textcolor{blue}{\cdot d_{_0}} x = \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x' \mapsto expr(x', y, z, \dots)) \textcolor{blue}{\cdot d_{_0}} \\
-                                    \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} expr(x, y, z, \dots) \textcolor{red}{\cdot \delta_{_h}} x = \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} (x' \mapsto expr(x', y, z, \dots)) \textcolor{red}{\cdot \delta_{_h}}
+                                    \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} expr(x, y, z, \dots) \textcolor{blue}{\cdot d_{_0}} x &= \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x_1 \textcolor{blue}{- 0}} (x' \mapsto expr(x', y, z, \dots)) \textcolor{blue}{\cdot d_{_0}} \\
+                                    \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} expr(x, y, z, \dots) \textcolor{red}{\cdot \delta_{_h}} x &= \textcolor{red}{_{_h} \! \sum}_{x_0}^{x_1 \textcolor{red}{- h}} (x' \mapsto expr(x', y, z, \dots)) \textcolor{red}{\cdot \delta_{_h}}
                                 \end{align*}
                                 Bisogna precisare che la variabile di cammino nell'integrale non ha nulla a che fare definizionalmente con la variabile nella quale si esprime il risultato (che dipende dalle variabili poste agli estremi).
                                 L'integrale è un operatore non locale in quanto necessita di due estremi per restituire un risultato.
@@ -167,22 +167,22 @@
 
                                 <h4>Composizione (Leibniz)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D_{_0}} (f \circ g) &= \textcolor{blue}{D_{_{d_{_0} g}}} f(g) \cdot \textcolor{blue}{D_{_0}} g \\
+                                    \textcolor{blue}{D_{_0}} (f \circ g) &= \textcolor{blue}{D_{_{0 \cdot D_{_0} g}}} f(g) \cdot \textcolor{blue}{D_{_0}} g \\
                                         &= \textcolor{blue}{D_{_0}} f(g) \cdot \textcolor{blue}{D_{_0}} g \\
                                     \\
-                                    \textcolor{red}{\Delta_{_h}} (f \circ g) &= \textcolor{red}{\Delta_{_{\delta_{_h} g}}} f(g) \cdot \textcolor{red}{\Delta_{_h}} g \\
+                                    \textcolor{red}{\Delta_{_h}} (f \circ g) &= \textcolor{red}{\Delta_{_{h \cdot \Delta_{_h} g}}} f(g) \cdot \textcolor{red}{\Delta_{_h}} g \\
                                 \end{align*}
                                 
                                 <h4>Inverso Compositivo (Leibniz)</h4>
                                 \begin{align*}
-                                    \textcolor{blue}{D_{_0}} (f \circ^{-1}) &= \frac{1}{\textcolor{blue}{D_{_{d_{_0} f \circ^{-1}}}} f(f \circ^{-1})} \\
+                                    \textcolor{blue}{D_{_0}} (f \circ^{-1}) &= \frac{1}{\textcolor{blue}{D_{_{0 \cdot D_{_0} f \circ^{-1}}}} f(f \circ^{-1})} \\
                                         &= \frac{1}{\textcolor{blue}{D_{_0}} f(f \circ^{-1})} \\
                                     \\
-                                    \textcolor{red}{\Delta_{_h}} (f \circ^{-1}) &= \frac{1}{\textcolor{red}{\Delta_{_{\delta_{_h} f \circ^{-1}}}} f(f \circ^{-1})} \\
+                                    \textcolor{red}{\Delta_{_h}} (f \circ^{-1}) &= \frac{1}{\textcolor{red}{\Delta_{_{h \cdot \Delta_{_h} f \circ^{-1}}}} f(f \circ^{-1})} \\
                                 \end{align*}
-                                <br>
                                 A lungo ho creduto che non esistesse una regola analoga a quella della derivata composta per la derivata discreta.
-                                In un certo senzo è vero. Non è possibile, per un fissato step infinitesimo constante, riscrivere la derivata discreta della composizione in termini delle derivate discrete a quel dato step di entrambe.
+                                In un certo senso è vero.
+                                Non è possibile, per un fissato step infinitesimo constante, riscrivere la derivata discreta della composizione in termini delle derivate discrete a quel dato step di entrambe.
                                 L'unica strada possibile è quella di accettare che lo step di derivazione possa non essere lo stesso scomponendo e slegando le due funzioni e possa dipendere dal punto di derivazione.
                                 Soprendentemente esiste così una formula per la derivata discreta della composizione ma è molto più brutta di quella per la derivata continua.
                                 In quella continua, dato che il nuovo step risultante dalla variazione infinitesima della variabile primordiale induce uno step a sua volta infintesimo a sequito dell'applicazione alla funzione interna, possiamo considerare il nuovo step di variazione interno come pure infinitesimo alla pari.
@@ -195,7 +195,7 @@
                                     \\
                                     \frac{\textcolor{red}{\delta_{_h}}f(g(x))}{\textcolor{red}{\delta_{_h}}x} &=^! \frac{\textcolor{red}{\delta_{_h}}f(g(x))}{\textcolor{red}{\delta_{_h}}g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x} \\
                                             & \quad \quad \cancel{=^? \left( \frac{\textcolor{red}{\delta_{_h}}f(y)}{\textcolor{red}{\delta_{_h}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x}} \\
-                                        &=^! \left( \frac{\textcolor{red}{\delta_{_{\delta g(x)}}}f(y)}{\textcolor{red}{\delta_{_{\delta g(x)}}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x}
+                                        &=^! \left( \frac{\textcolor{red}{\delta_{_{\delta_{_h} g(x)}}}f(y)}{\textcolor{red}{\delta_{_{\delta_{_h} g(x)}}}y} \right)_{y = g(x)} \cdot \frac{\textcolor{red}{\delta_{_h}}g(x)}{\textcolor{red}{\delta_{_h}}x}
                                 \end{align*}
                                 Ovviamente questa formula ha soltanto senso quando il nuovo differenziale generato dalla funzione interna è diverso da 0.
                                 Nel caso in cui la funzione interna non varia ne segue ovviamente che anche quella esterna non subisce a cascata variazione.
