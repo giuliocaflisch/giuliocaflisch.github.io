@@ -54,17 +54,7 @@
                                 Avremmo invece la "derivata" di "una funzione già calcolata in un particolare punto", che sarebbe decisamente sbagliato.
                                 <br>
                                 <br>
-                                Per finire estendiamo la definizione di derivata per accettare espressioni qualsiasi (non per forza funzioni esplicitate nella variabile argomento) se si dichiara anche la variabile interna analizzata.
-                                \begin{align*}
-                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left(expr(x, y, z, \dots) \right) &= \textcolor{blue}{D_{_0}} \left(x' \mapsto expr(x', y, z, \dots) \right)(x) \\
-                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left(expr(x, y, z, \dots) \right) &= \textcolor{red}{\Delta_{_h}} \left(x' \mapsto expr(x', y, z, \dots) \right)(x)
-                                \end{align*}
-                                In realtà non servirebbe neanche rinominare la variabile che definisce la funzione data l'espressione e il parametro di interesse.
-                                Ovviamente, nel caso delle funzioni, le fue notazioni coincidono, usando l'associatività da destra verso sinistra nella nuova forma introdotta.
-                                \begin{align*}
-                                    \frac{\textcolor{blue}{d_{_0}}f(x)}{\textcolor{blue}{d_{_0}}x} = \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} f(x) &= \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left( f(x) \right) = \textcolor{blue}{D_{_0}} f(x) \\
-                                    \frac{\textcolor{red}{\delta_{_h}}f(x)}{\textcolor{red}{\delta_{_h}}x} = \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} f(x) &= \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left( f(x) \right) = \textcolor{red}{\Delta_{_h}} f(x)
-                                \end{align*}
+                                
                                 E' possibile immaginare di definire, oltre all'operatore di derivata infinitesima e finitesima, anche gli operatori di differenziali totali finitesimi e infinitesimi (in effetti molti defniscono questi nel caso fnintesimo con lettere maiuscole, cosa che mi infastidisce alquanto).
                                 Fare ciò nel caso finitesimo è semplice. Decisamente meno per l'inifinitesimo, dove serve costruire l'enorme teoreia a me sconosciuta della geometria differenziale.
                                 <br>
@@ -113,8 +103,8 @@
                             <div class="col">
                                 <h3>Derivata dell'integrale</h3>
                                 \begin{align*}
-                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left(\textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} \right) &= f(x) \\
-                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left(\textcolor{red}{_{_h} \! \sum}_{x_0}^{x \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} \right) &= f(x)
+                                    \textcolor{blue}{D_{_0}} \left(x \mapsto \textcolor{blue}{_{_0} \!\! \int}_{x_0}^{x \textcolor{blue}{- 0}} f \textcolor{blue}{\cdot d_{_0}} \right) &= f \\
+                                    \textcolor{red}{\Delta_{_h}} \left(x \mapsto \textcolor{red}{_{_h} \! \sum}_{x_0}^{x \textcolor{red}{- h}} f \textcolor{red}{\cdot \delta_{_h}} \right) &= f
                                 \end{align*}
 
                                 <h3>Integrale della derivata</h3>
@@ -216,15 +206,15 @@
                                 Ecco qui la super concisa definizione data dal lavoro precedente.
                                 \begin{align*}
                                     (x) \cdot^n_{\textcolor{blue}{-0}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{blue}{0}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k} \\
-                                    (x) \cdot^n_{\textcolor{red}{-h}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{red}{h}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k} \\
+                                    (x) \cdot^n_{\textcolor{red}{-h}} &:= \textcolor{white}{\prod}_{0}^{n - 1} (x - k \cdot \textcolor{red}{h}) \textcolor{white}{\cdot}^{\textcolor{white}{\delta} k}
                                 \end{align*}
                                 Possiamo notare che, per esponente negatico, moltiplichiamo al denominatore potenze incrementative partendo dall'incremento di uno step (e non di 0 come per esponente positivo).
                                 <br>
                                 <br>
                                 Sembra incredibile ma questa, per definizione con esponenti interi, vale la classica regola di derivazione delle potenze scritta sotto. 
                                 \begin{align*}
-                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \left((x) \cdot^n_{\textcolor{blue}{-0}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{blue}{-0}} \\
-                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \left((x) \cdot^n_{\textcolor{red}{-h}} \right) &= n \cdot (x)\cdot^{n - 1}_{\textcolor{red}{-h}}
+                                    \textcolor{blue}{D_{_0}} \left(x \mapsto (x) \cdot^n_{\textcolor{blue}{-0}} \right) &= (x \mapsto n \cdot (x)\cdot^{n - 1}_{\textcolor{blue}{-0}}) \\
+                                    \textcolor{red}{\Delta_{_h}} \left(x \mapsto (x) \cdot^n_{\textcolor{red}{-h}} \right) &= (x \mapsto n \cdot (x)\cdot^{n - 1}_{\textcolor{red}{-h}})
                                 \end{align*}
                                 Ancor più entusiasmante è il fatto che esiste un'estensione per esponente complesso generico usando la continuazione analitica del fattoriale (che io indico con la lettera greca Digamma).
                                 \begin{align*}
@@ -247,8 +237,8 @@
                                 \end{align*}
                                 Ora possiamo analizzare le derivate.
                                 \begin{align*}
-                                    \frac{\textcolor{blue}{d_{_0}}}{\textcolor{blue}{d_{_0}}x} \textcolor{blue}{e_{_0}} \cdot^x &= \textcolor{blue}{e_{_0}} \cdot^x \\
-                                    \frac{\textcolor{red}{\delta_{_h}}}{\textcolor{red}{\delta_{_h}}x} \textcolor{red}{e_{_h}} \cdot^x &= \textcolor{red}{e_{_h}} \cdot^x
+                                    \textcolor{blue}{D_{_0}} ( x \mapsto \textcolor{blue}{e_{_0}} \cdot^x ) &= (x \mapsto \textcolor{blue}{e_{_0}} \cdot^x) \\
+                                    \textcolor{red}{\Delta_{_h}} ( x \mapsto \textcolor{red}{e_{_h}} \cdot^x ) &= (x \mapsto \textcolor{red}{e_{_h}} \cdot^x)
                                 \end{align*}
                                 Notate qualcuno di familiare?
                                 Ecco tra noi il numero di Napier!
