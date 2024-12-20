@@ -1,11 +1,21 @@
 @font-face {
-    font-family: "Monomath";
+    font-family: "Monocode";
     
-    src: url('assets/fonts/monomath/monomath-regular.ttf');
-    src: url('assets/fonts/monomath/monomath-regular.ttf') format('truetype');
+    src: url('assets/fonts/monocode/monocode-light.ttf');
+    src: url('assets/fonts/monocode/monocode-light.ttf') format('truetype');
     
     font-weight: normal;
     font-style:  normal;
+}
+
+@font-face {
+    font-family: "Monocode";
+    
+    src: url('assets/fonts/monocode/monocode-bold.ttf');
+    src: url('assets/fonts/monocode/monocode-bold.ttf') format('truetype');
+    
+    font-weight: bold;
+    font-style:  bold;
 }
 
 body {
@@ -102,7 +112,7 @@ math {
 
     color: rgb(212, 212, 212);
     
-    font-family: "Monomath";
+    font-family: "Monocode";
     font-size:   15px;
 
     white-space: pre;
