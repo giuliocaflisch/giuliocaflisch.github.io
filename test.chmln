@@ -1,0 +1,25 @@
+id := x ↦ x
+
+δ := _h = 1, f, x ↦ f(x + h) - f(x)
+ƍ := _h = 1, f, x ↦ f(x) - f(x - h)
+
+∆ := _h = 1, f ↦ δ_h f / δ_h id
+∇ := _h = 1, f ↦ ƍ_h f / ƍ_h id
+
+merge_sort( |⊒ []) :=
+  argument L
+  if #L < 2 then
+    L
+  else
+    merge(merge_sort(L[,, < #L / 2], L[#L / 2 ≤ ,,])
+
+merge( |⊒ [], |⊒ []) :=
+  arguments L, L'
+  if L = [] then
+    L'
+  if L' = [] then
+    L
+  if L(0) < L'(0) then
+    L[0] + merge(L[1 ≤ ,,], L')
+  else
+    L'[0] + merge(L, L'[1 ≤ ,,])
