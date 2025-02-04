@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -412,3 +413,4 @@
         <script src="static/interactive.js"></script>
     </body> 
 </html>
+-->
