@@ -132,21 +132,8 @@ footer {
     margin-left: 0;
     margin-right: 0.25rem;
     padding: 0;
+    border-radius: 50%;
     display: inline-block;
-}
-
-.rounded-brand img {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.rounded-brand {
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .navbar-nav .nav-item .nav-link {
