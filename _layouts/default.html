@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="{{ '/static/structure/bootstrap/bootstrap.min.css' | relative_url }}" rel="stylesheet">
+        <link href="{{ 'static/style.css' | relative_url }}" rel="stylesheet">
+        
+        <title>{{ page.title }} | OChameleon</title>
+
+        <link rel="icon" href="{{ '/files/logo/colour-icon-square-top.png' | relative_url }}" type="image/png">
+    </head>
+
+    <body>
+        {% include menu.html %}
+
+        {% include header.html %}
+
+        <main>
+            {{ content }}
+        </main>
+
+        {% include footer.html %}
+
+        <script src="{{ '/static/structure/bootstrap/bootstrap.bundle.min.js' | relative_url }}"></script>
+        <script src="{{ '/static/assets/icons/fontawesome/regular.min.js' | relative_url }}"></script>
+
+        <script src="{{ '/static/interactive.js' | relative_url }}"></script>
+    </body>
+</html>
