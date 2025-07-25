@@ -135,6 +135,20 @@ footer {
     display: inline-block;
 }
 
+.rounded-brand img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rounded-brand {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbar-nav .nav-item .nav-link {
     color: var(--link-color)
 }
