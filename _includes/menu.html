@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top p-2">
     <div class="container-xxl">
-        <a href="{{ '/' | relative_url }}" class="navbar-brand">
-            <img src="{{ '/files/profile/picture-square.jpg' | relative_url }}" width="42" alt="Logo"><b>Giulio Caflisch</b> 
+        <a href="{{ '/' | relative_url }}" class="navbar-brand rounded-brand">
+            <img src="{{ '/files/profile/picture-square.jpg' | relative_url }}" width="56" alt="Logo"><b>Giulio Caflisch</b> 
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,10 +10,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link {% if page.url == '/index.html' %}active{% endif %}" href="{{ '/index.html' | relative_url }}">Home</a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link {% if page.url == '/poetry.html' %}active{% endif %}" href="{{ '/poetry.html' | relative_url }}">Poesie</a>
                 </li>
